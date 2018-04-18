@@ -11,7 +11,7 @@ This is basicaly a recipe management system where users can create, update and d
 
 - There will be a create profile button
 
-- The User will be able to click on a recipe to go to the recipes detaiils page.
+- The User will be able to click on a recipe to go to the recipes details page.
 
 - There will be an 'add to profile' button on the recipes details page to add that recipe to the User's recipe database
 
