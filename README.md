@@ -3,7 +3,7 @@
 # Description
 This is basicaly a recipe management system where users can create, update and delete recipes.
 
-# User Stories
+# Overview
 
 - The landing page will display different recipes that can be gotten from the database or from an API. The recipes may be random each time the page loads.
 
