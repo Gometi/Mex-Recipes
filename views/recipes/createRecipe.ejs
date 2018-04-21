@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+<div>
+   <form class="createRecipeForm" action="" method="">
+    <label>
+      Recipe Name: 
+     <input type="text" name="recipe_name" placeholder="Enter Recipe Name">
+    </label>
+    <br>
+    <br>
+    <label>
+      Description: 
+     <textarea name="description" rows="3" cols="40"></textarea>
+    </label>
+    <br>
+    <br>
+    <label>
+    <input type="text" class="ingredient">
+    </label>
+    <input class="add_ingredient" type="button"  value="Add Ingredient">
+    <select class="ingredients" name="ingredients" size="5" multiple>
+     
+    </select>
+    <input class="remove_ingredient" type="button"  value="remove Ingredient">
+    <br>
+    <br>
+    <label>
+      Instructions: 
+     <textarea name="instructions" rows="3" cols="40"></textarea>
+    </label>
+    <br>
+    <br>
+     <label>
+      Nutrition: 
+     <textarea name="nutrition" rows="3" cols="40"></textarea>
+    </label>
+    <br>
+    <br>
+    <label>
+      Recipe Image: 
+     <input type="text" name="image_url" placeholder="Enter Image url">
+    </label>
+    <br>
+    <br>
+    <input type="submit" class="createRecipeButton" value="Create Recipe">
+   </form>
+</div>
+
+<% include ../partials/footer %>

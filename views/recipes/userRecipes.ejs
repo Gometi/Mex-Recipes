@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+    <div>
+        <%recipes.forEach(recipe =>{%>
+            <a href="user_recipes/<%=recipe.recipe_id%>"><h2><%=recipe.recipe_name%> </h2></a>
+            <p><%=recipe.description%></p><br>
+            <a href="user_recipes/<%=recipe.recipe_id%>"><img src="<%=recipe.image_url%>" alt=""></a>
+      <%}) %>
+        </div>
+     
+    </div>
+   <% include ../partials/footer %>

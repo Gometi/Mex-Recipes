@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 app.use(logger('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false })); // parse urlencoded req bodies (for POST and PUT requests)
 app.use(bodyParser.json());
 
@@ -16,6 +18,7 @@ app.get('/',(req, res)=>{
 })
 
 app.use('/recipes', router.recipesRouter);
+app.use('/user_recipes', router.userRecipesRouter);
 
 
 app.listen(PORT,()=>{

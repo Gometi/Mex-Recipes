@@ -26,7 +26,7 @@ CREATE TABLE default_ingredients(
 
 CREATE TABLE user_recipes
 (
-    recipe_id SERIAL PRIMARY KEY,
+    recipe_id VARCHAR(255) NOT NULL PRIMARY KEY,
     recipe_name VARCHAR(255),
     description TEXT,
     instructions TEXT,
@@ -38,8 +38,8 @@ CREATE TABLE user_ingredients
 (
     ingredient_id SERIAL PRIMARY KEY,
     ingredient_name VARCHAR(255),
-    recipe_id INT,
-    FOREIGN KEY (recipe_id) REFERENCES default_recipes(recipe_id)
+    recipe_id VARCHAR(255),
+    FOREIGN KEY (recipe_id) REFERENCES user_recipes(recipe_id)
 );
 
 

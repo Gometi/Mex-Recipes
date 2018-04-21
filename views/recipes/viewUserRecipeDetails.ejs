@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+<a href="/user_recipes/<%= recipe[0].recipe_id%>/edit"><h1>Edit Recipe</h1></a>
+<div>
+    <h1>Recipe Details</h1>
+    <h2><%= recipe[0].recipe_name%></h2>
+    <img src="<%= recipe[0].image_url%>" alt="">
+    <h4><%= recipe[0].description %></h4>
+    <h3>Ingredients</h3>
+    <ul>
+        <% recipe.forEach(recipe =>{%>
+        <li><%=recipe.ingredient_name %></li>
+    <%})%>
+    </ul>
+    
+    <h3>Directions</h3>
+    <p><%= recipe[0].instructions %></p>
+    <h3>Nutrition</h3>
+    <p><%= recipe[0].nutrition%></p>
+</div>
+<% include ../partials/footer %>
