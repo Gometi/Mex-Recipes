@@ -1,9 +1,12 @@
 <% include ../partials/header %>
-<a href="/user_recipes/<%= recipe[0].recipe_id%>/edit"><h1>Edit Recipe</h1></a>
-<form action="/user_recipes/<%= recipe[0].recipe_id%>?_method=DELETE" method="POST">
-    <input class="deleteButton" type="submit" name="" value="Delete Recipe">
-</form>
-<div>
+<div class="edit_delete">
+    <a href="/user_recipes/<%= recipe[0].recipe_id%>/edit"><h1>Edit Recipe</h1></a>
+    <form action="/user_recipes/<%= recipe[0].recipe_id%>?_method=DELETE" method="POST">
+       <input class="deleteButton" type="submit" name="" value="Delete Recipe">
+    </form>
+</div>
+
+<div class="recipe_details_page">
     <h1>Recipe Details</h1>
     <h2><%= recipe[0].recipe_name%></h2>
     <img src="<%= recipe[0].image_url%>" alt="">

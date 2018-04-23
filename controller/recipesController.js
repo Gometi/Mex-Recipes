@@ -1,15 +1,31 @@
 const recipes = require('../models/recipes');
 const uniqid = require('uniqid');
-function getAllDefaultRecipes(req, res, next) {
-    recipes.getAllDefaultRecipes()
-    .then(data =>{
-        res.locals.recipes = data;
-        next();
-    })
-    .catch(err =>{
-        next(err);
-    })
+const fetch = require = require('node-fetch');
+function getAllDefaultRecipes(req, res, next){
+  fetch('https://www.themealdb.com/api/json/v1/1/latest.php')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            res.locals.recipes = data.meals;
+            next();
+        })
+        .catch((err) => {
+            next(err);
+        })
 }
+
+// function getAllDefaultRecipes(req, res, next) {
+//     generateRecipes();
+//     recipes.getAllDefaultRecipes()
+//     .then(data =>{
+//         res.locals.recipes = data;
+//         next();
+//     })
+//     .catch(err =>{
+//         next(err);
+//     })
+// }
 
 function getOneDefaultRecipe(req, res, next) {
     recipes.getOneDefaultRecipe(req.params.id)

@@ -1,4 +1,65 @@
 textarea{
     resize: none;
 }
+nav{
+    background-color: red;
+}
+.recipe_list_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.recipe_details_page{
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+}
+.recipe_details_page :nth-child(4){
+    width: 700px;
+}
+.edit_delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+nav ul li{
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    text-decoration-color: wheat;
+}
+.recipe_image{
+    width: 300px;
+    height: 150px;
+}
+.recipes{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 30px;
+    box-shadow: 5px 10px gray;
+    transition: .3s;
+}
+.recipes:hover{
+    box-shadow: 0 0;
+    height: 190px;
+}
+.recipes div{
+    margin: 20px;
+}
+.default_recipe_details{
+    display: none;
+}

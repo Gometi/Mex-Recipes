@@ -1,9 +1,9 @@
 <% include ../partials/header %>
-<div>
+<div class="recipe_details_page">
     <h1>Recipe Details</h1>
-    <h2><%= recipe[0].recipe_name%></h2>
-    <img src="<%= recipe[0].image_url%>" alt="">
-    <h4><%= recipe[0].description %></h4>
+    <h2><%= recipe.strMeal%></h2>
+    <img src="<%= recipe.strMealThumb%>" alt="">
+    <h4><%= recipe.strCategory %></h4>
     <h3>Ingredients</h3>
     <ul>
         <% recipe.forEach(recipe =>{%>
@@ -16,4 +16,5 @@
     <h3>Nutrition</h3>
     <p><%= recipe[0].nutrition%></p>
 </div>
+
 <% include ../partials/footer %>

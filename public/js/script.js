@@ -1,7 +1,5 @@
 $(document).ready(function () {
     console.log("ready!");
-
-
     $('.add_ingredient').click(() => {
         if ($('.ingredient').val()) {
             $('.ingredients').append(`<option>${$('.ingredient').val()}</option>`);
@@ -33,29 +31,19 @@ $(document).ready(function () {
         alert('Recipe Deleted');
     })
 
-    // $('.enter').click(()=>{
-        // alert('fetching');
-        // fetch('https://www.themealdb.com/api/json/v1/1/latest.php')
-        // .then((response) =>{
-        //     alert(response);
-        //     return response.json();
-        // })
-        // .then((data)=>{
-        //     alert(data);
-        //     console.log(data);
-        // })
-        // .catch((err) =>{
-        //     console.log(err);
-        // })
-
-    //     async function getData() {
-    //         let response = await fetch('https://www.themealdb.com/api/json/v1/1/latest.php');
-    //         let data = await response.json();
-    //         return data;
-    //     }
-
-    //     getData()
-    //     .then(data => alert(data))
-    //     .catch(err => console.log(err.message))
+    // $('.fetch').click(()=>{
+       
+    //     alert('fetching');
+    //     fetch('https://www.themealdb.com/api/json/v1/1/latest.php')
+    //     .then((response) =>{
+    //         console.log(response);
+    //         return response.json();
+    //     })
+    //     .then((data)=>{
+    //         console.log(data);
+    //     })
+    //     .catch((err) =>{
+    //         console.log(err);
+    //     })
     // })
 });
