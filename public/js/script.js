@@ -27,7 +27,11 @@ $(document).ready(function () {
         $.post(`/user_recipes/${$('.recipe_id').val()}`, $('.updateRecipeForm').serialize());
         alert('recipe Updated');
     });
+   
 
+    $('.deleteButton').click(()=>{
+        alert('Recipe Deleted');
+    })
 
     // $('.enter').click(()=>{
         // alert('fetching');
