@@ -27,6 +27,17 @@ function createIngredient(ingredient) {
     return db.one(`INSERT INTO user_ingredients (ingredient_name, recipe_id) VALUES($/ingredient_name/, $/recipe_id/) RETURNING *`, ingredient);
 
 }
+function deleteIngredient(recipe_id) {
+    return db.none(`DELETE FROM user_ingredients WHERE recipe_id = $1`, recipe_id);
+}
+
+function updateRecipe(recipe) {
+    return db.one(`UPDATE user_recipes SET recipe_name = $/recipe_name/, description = $/description/, instructions = $/instructions/, nutrition = $/nutrition/, image_url = $/image_url/ WHERE recipe_id = $/recipe_id/ RETURNING *`, recipe);
+}
+
+function deleteRecipe(recipe_id) {
+    return db.none(`DELETE FROM user_recipes WHERE recipe_id = $1`, recipe_id);
+}
 
 module.exports = {
     getAllDefaultRecipes,
@@ -34,5 +45,8 @@ module.exports = {
     getAllUserRecipes,
     getOneUserRecipe,
     createRecipe,
-    createIngredient
+    createIngredient,
+    deleteIngredient,
+    updateRecipe,
+    deleteRecipe
 }

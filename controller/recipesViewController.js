@@ -20,11 +20,17 @@ function createRecipe(req, res) {
 function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
+
+function deleteRecipe(req, res) {
+    res.render('recipes/userRecipes')
+}
+
 module.exports = {
     showAllRecipes,
     showOneRecipe,
     showAllUserRecipes,
     showOneUserRecipe,
     createRecipe,
-    editRecipe
+    editRecipe,
+    deleteRecipe
 }

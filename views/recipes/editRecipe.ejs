@@ -1,6 +1,12 @@
 <% include ../partials/header %>
 <div>
-   <form class="createRecipeForm" action="" method="">
+   <form class="updateRecipeForm" action="" method="">
+   <label>
+   Recipe Id:
+   <input class="recipe_id" type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>" disabled>
+   </label>
+   <br>
+   <br>
     <label>
       Recipe Name: 
      <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">
@@ -43,8 +49,9 @@
     </label>
     <br>
     <br>
-    <input type="submit" class="createRecipeButton" value="Create Recipe">
+    
+        <a href="/user_recipes"><h4 class="editRecipe">Save Changes</h4></a>
+   
    </form>
 </div>
-
 <% include ../partials/footer %>

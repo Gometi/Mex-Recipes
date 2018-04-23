@@ -11,17 +11,20 @@ recipesRouter.route('/:id')
 
 userRecipesRouter.route('/')
     .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)
+    .post(recipesController.createRecipe)
 
 
 userRecipesRouter.route('/:id/edit')
     .get(recipesController.getOneUserRecipe, recipesViewController.editRecipe)
-
+    
 userRecipesRouter.route('/create')
     .get(recipesViewController.createRecipe)
-    .post(recipesController.createRecipe)
+    
 
 userRecipesRouter.route('/:id')
     .get(recipesController.getOneUserRecipe, recipesViewController.showOneUserRecipe)
+    .post(recipesController.updateRecipe)
+    .delete(recipesController.deleteRecipe, recipesViewController.deleteRecipe)
 
     
 
