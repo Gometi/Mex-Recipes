@@ -1,10 +1,10 @@
 <% include ../partials/header %>
-    <div>
+    <div class="defaultRecipes">
+    <h1>Random Recipes</h1>
         <%recipes.forEach(recipe =>{%>
             <h2><%=recipe.strMeal%> </h2>
-            <p><%=recipe.strCategory%></p><br>
+            <h2><%=recipe.strCategory%></h2><br>
              <img src="<%=recipe.strMealThumb%>" alt="">
-             <h3 class="view_detail">View Details</h3>
      <div class="default_recipe_details">
      <h3>Ingredients</h3>
      <ul>
@@ -46,7 +46,7 @@
     <p><%= recipe.strInstructions %></p>
      </div>
       <%}) %>
-        </div>
+     </div>
      
 
   <% include ../partials/footer %>

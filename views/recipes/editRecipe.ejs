@@ -1,20 +1,28 @@
 <% include ../partials/header %>
-<div>
+<div class="edit_container">
+
+<div class="create_recipe">
+    <h2>Edit recipe</h2>
+</div>
+<div class="first_container">
+    
+
+<div class="updateContainer">
    <form class="updateRecipeForm" action="" method="">
    <label>
-   Recipe Id:
+   <h3> Recipe Id:</h3>
    <input class="recipe_id" type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>" disabled>
    </label>
    <br>
    <br>
     <label>
-      Recipe Name: 
+      <h3> Recipe Name:</h3> 
      <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">
     </label>
     <br>
     <br>
     <label>
-      Description: 
+      <h3> Description:</h3> 
      <textarea name="description" rows="3" cols="40"><%=recipe[0].description%></textarea>
     </label>
     <br>
@@ -22,36 +30,42 @@
     <label>
     <input type="text" class="ingredient">
     </label>
-    <input class="add_ingredient" type="button"  value="Add Ingredient">
+    <button class="add_ingredient" type="button" >Add Ingredient</button>
+    <div class="ingredient_list_container">
+     <h3>Ingredient List</h3>
     <select class="ingredients" name="ingredients" size="5" multiple>
      <% recipe.forEach(recipe =>{%>
         <option><%=recipe.ingredient_name %></option>
     <%})%>
     </select>
-    <input class="remove_ingredient" type="button"  value="remove Ingredient">
+    <br>
+    <button class="remove_ingredient" type="button">Remove Ingredient</button>
+    </div>
     <br>
     <br>
     <label>
-      Instructions: 
+      <h3> Instructions:</h3> 
      <textarea name="instructions" rows="3" cols="40"><%=recipe[0].instructions%></textarea>
     </label>
     <br>
     <br>
      <label>
-      Nutrition: 
+      <h3> Nutrition: </h3>
      <textarea name="nutrition" rows="3" cols="40"><%=recipe[0].nutrition%></textarea>
     </label>
     <br>
     <br>
     <label>
-      Recipe Image: 
-     <input type="text" name="image_url" value="<%=recipe[0].image_url%>">
+      <h3> Recipe Image: </h3>
+     <input class="image_url" type="text" name="image_url" value="<%=recipe[0].image_url%>">
     </label>
     <br>
     <br>
     
-        <a href="/user_recipes"><h4 class="editRecipe">Save Changes</h4></a>
+        <a class="editLink" href="/user_recipes"><h2 class="editRecipe">Save Changes</h2></a>
    
    </form>
+</div>
+</div>
 </div>
 <% include ../partials/footer %>

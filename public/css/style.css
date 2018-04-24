@@ -3,26 +3,66 @@ textarea{
 }
 nav{
     background-color: red;
+    font-size: 30px;
+    font-family: 'Kalam', cursive;
 }
-.recipe_list_title{
+.recipe_list_title, .create_recipe{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-family: 'Kalam', cursive;
+    color: white;
 }
-.recipe_details_page{
+.recipe_details_page, .welcome{
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    font-family:  cursive;
+    
+}
+.defaultRecipes, .default_recipe_details{
     display: flex;
     flex-direction: column;
     align-items:  center;
 }
+.defaultRecipes{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.defaultRecipes img{
+    width: 700px;
+    height: 500px;
+    border: 2px solid red;
+    border-radius: 30px;
+}
+.welcome h1{
+ font-size: 70px;
+}
+.welcome h2{
+    font-size: 60px;
+}
+.recipe_details_page h1, .defaultRecipes h1{
+    font-family: 'Kalam', cursive;
+}
+.recipe_details_page h2, h3, h4{
+    font-family: 'Boogaloo', cursive;
+}
 .recipe_details_page :nth-child(4){
     width: 700px;
+}
+.default_recipe_details li{
+  font-family: cursive;
 }
 .edit_delete{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-family: 'Boogaloo', cursive;
 }
-
+.deleteButton{
+    background: black;
+    color: white;
+}
 nav ul{
     list-style: none;
     display: flex;
@@ -60,6 +100,105 @@ a:hover{
 .recipes div{
     margin: 20px;
 }
-.default_recipe_details{
-    display: none;
+
+.outer_container{
+    background: url("../images/recipeBack1.jpg");
+    background-size: cover;
+}
+.edit_container{
+    background: url("../images/recipeBack3.jpg");
+    background-size: cover;
+}
+.outer_container h3{
+    color: rgb(36, 2, 2);
+    font-family: 'Boogaloo', cursive;
+}
+.first_container{
+    display: flex;
+    justify-content: center;
+}
+.create_container, .recipe_details_page, .updateContainer{
+    height: 550px;
+    width: 1000px;
+    background: rgb(253, 251, 251, .5);
+     border: 10px solid white;
+     border-radius: 30px;
+    overflow: auto;
+}
+.recipe_details_page{
+    border: 5px solid black;
+
+}
+.recipe_details_page img{
+    border: 2px solid rgb(238, 32, 32);
+    border-radius: 20px;
+}
+
+.details_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("../images/recipeBack2.jpg");
+}
+.recipe_details_title{
+  color: rgb(17, 5, 2);
+  background: rgb(255, 255, 255, .5);
+}
+.createRecipeForm, .updateRecipeForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.ingredient_list_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.createRecipeForm select, .updateRecipeForm select{
+    width: 300px;
+    background-color: rgb(247, 230, 230);
+    font-size: 16px;
+}
+.add_ingredient, .remove_ingredient{
+    height: 30px;
+    width: 200px;
+}
+label, .add_ingredient_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    font-size: 18px;
+    margin: 5px;
+}
+textarea, input, select{
+    border: solid red;
+    border-radius: 8px;
+    
+}
+textarea{
+    font-size: 15px;
+    height: 100px;
+}
+button{
+    border: 4px solid white;
+    background: rgb(209, 13, 127);
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.image_url{
+    width: 400px;
+}
+.createRecipeButton{
+    border: 5px solid white;
+    background: red;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.editLink:hover{
+    text-decoration-color: red;
 }

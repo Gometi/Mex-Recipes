@@ -1,49 +1,64 @@
 <% include ../partials/header %>
-<div>
+<div class="outer_container">
+    
+
+<div class="create_recipe">
+    <h2>Create recipe</h2>
+</div>
+<div class="first_container">
+    
+<div class="create_container">
    <form class="createRecipeForm" action="" method="">
     <label>
-      Recipe Name: 
+     <h3>Recipe Name: </h3> 
      <input type="text" name="recipe_name" placeholder="Enter Recipe Name">
     </label>
     <br>
     <br>
     <label>
-      Description: 
-     <textarea name="description" rows="3" cols="40"></textarea>
+      <h3> Description:</h3> 
+     <textarea name="description" rows="3" cols="40" placeholder="Enter Recipe Description"></textarea>
     </label>
     <br>
     <br>
-    <label>
-    <input type="text" class="ingredient">
-    </label>
-    <input class="add_ingredient" type="button"  value="Add Ingredient">
-    <select class="ingredients" name="ingredients" size="5" multiple>
+    <div class="add_ingredient_container">
+    <input type="text" class="ingredient" placeholder="Enter ingredient Name">
+    
+        <button class="add_ingredient" type="button">Add Ingredient</button> 
+    </div>
+    
+        <div class="ingredient_list_container">
+        <h3 class="ingredients_list">Ingredients List</h3>
+        <select class="ingredients" name="ingredients" size="8" multiple>
      
-    </select>
-    <input class="remove_ingredient" type="button"  value="remove Ingredient">
+         </select>
+      <br>
+        <button class="remove_ingredient" type="button">Remove Ingredient</button> 
+    </div>
+    
     <br>
     <br>
     <label>
-      Instructions: 
-     <textarea name="instructions" rows="3" cols="40"></textarea>
+      <h3> Instructions:</h3> 
+     <textarea name="instructions" rows="3" cols="40" placeholder="Enter Recipe Instructions"></textarea>
     </label>
     <br>
     <br>
      <label>
-      Nutrition: 
-     <textarea name="nutrition" rows="3" cols="40"></textarea>
+      <h3> Nutrition: </h3>
+     <textarea name="nutrition" rows="3" cols="40" placeholder="Enter Nutrition Facts"></textarea>
     </label>
     <br>
     <br>
     <label>
-      Recipe Image: 
-     <input type="text" name="image_url" placeholder="Enter Image url">
+      <h3> Recipe Image:</h3> 
+     <input class="image_url" type="text" name="image_url" placeholder="Enter Image url">
     </label>
     <br>
     <br>
-    <h3 class="createRecipeButton">Create Recipe</h3>
+    <button class="createRecipeButton">Create Recipe</button>
    </form>
 </div>
-<button class="fetch" type="">fetch</button>
-
+</div>
+</div>
 <% include ../partials/footer %>

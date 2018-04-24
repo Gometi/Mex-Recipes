@@ -5,12 +5,12 @@
        <input class="deleteButton" type="submit" name="" value="Delete Recipe">
     </form>
 </div>
-
+<div class="details_container">
+    <h1 class="recipe_details_title">Recipe Details</h1>
 <div class="recipe_details_page">
-    <h1>Recipe Details</h1>
     <h2><%= recipe[0].recipe_name%></h2>
     <img src="<%= recipe[0].image_url%>" alt="">
-    <h4><%= recipe[0].description %></h4>
+    <h4><%= recipe[0].description %></h4><br>
     <h3>Ingredients</h3>
     <ul>
         <% recipe.forEach(recipe =>{%>
@@ -22,5 +22,6 @@
     <p><%= recipe[0].instructions %></p>
     <h3>Nutrition</h3>
     <p><%= recipe[0].nutrition%></p>
+</div>
 </div>
 <% include ../partials/footer %>
