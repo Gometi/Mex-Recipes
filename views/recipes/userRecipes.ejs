@@ -1,13 +1,13 @@
-<% include ../partials/header %>
+<% include ../partials/header %>      <!-- import header.ejs file -->
 <div class="recipe_list_title">
     <h2 >Recipes List</h2>
 </div>
  
     <div class="recipe_list">
           <%recipes.reverse().forEach(recipe =>{%>
-          <a href="user_recipes/<%=recipe.recipe_id%>"> <div class="recipes">
+          <a href="user_recipes/<%=recipe.recipe_id%>"> <div class="recipes">  
             <div>
-             <img class="recipe_image" src="<%=recipe.image_url%>" alt="NO IMAGE">
+             <img class="recipe_image" src="<%=recipe.image_url%>" alt="NO IMAGE"> 
             </div>
             <div>
                 <h2><%=recipe.recipe_name%> </h2>
@@ -18,4 +18,4 @@
         </div>
      
     </div>
-   <% include ../partials/footer %>
+   <% include ../partials/footer %>     

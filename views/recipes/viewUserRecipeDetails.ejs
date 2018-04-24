@@ -1,27 +1,27 @@
-<% include ../partials/header %>
+<% include ../partials/header %>   <!-- import header.ejs file -->
 <div class="edit_delete">
     <a href="/user_recipes/<%= recipe[0].recipe_id%>/edit"><h1>Edit Recipe</h1></a>
     <form action="/user_recipes/<%= recipe[0].recipe_id%>?_method=DELETE" method="POST">
-       <input class="deleteButton" type="submit" name="" value="Delete Recipe">
+         <input class="deleteButton" type="submit" name="" value="Delete Recipe">   <!-- button that sends the delete request-->
     </form>
 </div>
 <div class="details_container">
     <h1 class="recipe_details_title">Recipe Details</h1>
 <div class="recipe_details_page">
-    <h2><%= recipe[0].recipe_name%></h2>
-    <img src="<%= recipe[0].image_url%>" alt="">
-    <h4><%= recipe[0].description %></h4><br>
+    <h2><%= recipe[0].recipe_name%></h2>     <!-- get recipe name from the response body -->
+    <img src="<%= recipe[0].image_url%>" alt="">   <!-- get image url from the response body -->
+    <h4><%= recipe[0].description %></h4><br>    <!-- get the description from the response body -->
     <h3>Ingredients</h3>
     <ul>
         <% recipe.forEach(recipe =>{%>
-        <li><%=recipe.ingredient_name %></li>
+        <li><%=recipe.ingredient_name %></li>     
     <%})%>
     </ul>
     
     <h3>Directions</h3>
-    <p><%= recipe[0].instructions %></p>
+    <p><%= recipe[0].instructions %></p>    <!-- get the instructions from the response body -->
     <h3>Nutrition</h3>
-    <p><%= recipe[0].nutrition%></p>
+    <p><%= recipe[0].nutrition%></p>       <!-- get the nutrition from the response body -->
 </div>
 </div>
-<% include ../partials/footer %>
+<% include ../partials/footer %>      <!-- import the footer.ejs -->

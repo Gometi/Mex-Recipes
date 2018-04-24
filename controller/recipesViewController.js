@@ -1,3 +1,5 @@
+//define the functions that shows the ejs files
+
 function showAllRecipes(req, res) {
     res.render('recipes/defaultRecipes');
 }
@@ -25,7 +27,7 @@ function deleteRecipe(req, res) {
     res.render('recipes/userRecipes')
 }
 
-module.exports = {
+module.exports = {        //export the functions
     showAllRecipes,
     showOneRecipe,
     showAllUserRecipes,

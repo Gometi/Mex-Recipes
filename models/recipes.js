@@ -1,5 +1,5 @@
-const db = require('../config/connection');
-
+const db = require('../config/connection');  //import the connection
+//define the functions that query the database
 function getAllDefaultRecipes() {
     return db.any('SELECT * FROM default_recipes');
 }
