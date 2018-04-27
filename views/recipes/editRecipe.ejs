@@ -1,4 +1,4 @@
-<% include ../partials/header %>
+<% include ../partials/header %>   <!-- import header.ejs file -->
 <div class="edit_container">
 
 <div class="create_recipe">
@@ -11,19 +11,19 @@
    <form class="updateRecipeForm" action="" method="">
    <label>
    <h3> Recipe Id:</h3>
-   <input class="recipe_id" type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>" disabled>
+   <input class="recipe_id" type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>" disabled>  <!-- set the content of the textbox to the recipe_id gotten from the response body -->
    </label>
    <br>
    <br>
     <label>
       <h3> Recipe Name:</h3> 
-     <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">
+     <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">         <!-- set the content of the textbox to the recipe_name gotten from the response body -->
     </label>
     <br>
     <br>
     <label>
       <h3> Description:</h3> 
-     <textarea name="description" rows="3" cols="40"><%=recipe[0].description%></textarea>
+     <textarea name="description" rows="3" cols="40"><%=recipe[0].description%></textarea>  <!-- set the content of the textarea to the description gotten from the response body -->
     </label>
     <br>
     <br>
@@ -35,7 +35,7 @@
      <h3>Ingredient List</h3>
     <select class="ingredients" name="ingredients" size="5" multiple>
      <% recipe.forEach(recipe =>{%>
-        <option><%=recipe.ingredient_name %></option>
+        <option><%=recipe.ingredient_name %></option>     
     <%})%>
     </select>
     <br>
@@ -45,19 +45,19 @@
     <br>
     <label>
       <h3> Instructions:</h3> 
-     <textarea name="instructions" rows="3" cols="40"><%=recipe[0].instructions%></textarea>
+     <textarea name="instructions" rows="3" cols="40"><%=recipe[0].instructions%></textarea>   <!-- set the content of the textarea to the instructions gotten from the response body -->
     </label>
     <br>
     <br>
      <label>
       <h3> Nutrition: </h3>
-     <textarea name="nutrition" rows="3" cols="40"><%=recipe[0].nutrition%></textarea>
+     <textarea name="nutrition" rows="3" cols="40"><%=recipe[0].nutrition%></textarea>         <!-- set the content of the textarea to the nutrition gotten from the response body -->
     </label>
     <br>
     <br>
     <label>
       <h3> Recipe Image: </h3>
-     <input class="image_url" type="text" name="image_url" value="<%=recipe[0].image_url%>">
+     <input class="image_url" type="text" name="image_url" value="<%=recipe[0].image_url%>">    <!-- set the content of the textbox to the image url gotten from the response body -->
     </label>
     <br>
     <br>
@@ -68,4 +68,4 @@
 </div>
 </div>
 </div>
-<% include ../partials/footer %>
+<% include ../partials/footer %>     <!-- import the footer.ejs file -->

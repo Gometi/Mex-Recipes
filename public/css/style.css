@@ -13,6 +13,10 @@ nav{
     font-family: 'Kalam', cursive;
     color: white;
 }
+.create_recipe h2{
+    color: rgb(36, 2, 2);
+    background: rgb(255, 255, 255, .5);
+}
 .recipe_details_page, .welcome{
     display: flex;
     flex-direction: column;
@@ -98,7 +102,20 @@ a:hover{
     height: 190px;
 }
 .recipes div{
-    margin: 20px;
+    margin: 10px;
+}
+@media only screen and (max-width: 500px){
+  .recipes{
+      height: 150px;
+      margin: 10px;
+  }
+  .recipe_image{
+    width: 210px;
+    height: 100px;
+}
+ .recipe_details_page img{
+      
+ }
 }
 
 .outer_container{
@@ -201,4 +218,33 @@ button{
 }
 .editLink:hover{
     text-decoration-color: red;
+}
+
+@media only screen and (max-width: 800px){
+    .recipe_details_page{
+        width: 600px;
+    }
+}
+@media only screen and (max-width: 700px){
+    .defaultRecipes img{
+        width: 400px;
+        height: 300px; 
+    }
+    .recipe_details_page{
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    nav ul{
+        flex-direction: column;
+    }
+    .defaultRecipes{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .recipe_details_page{
+        width: 400px;
+    }
 }
