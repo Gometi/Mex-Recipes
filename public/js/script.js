@@ -1,6 +1,23 @@
 $(document).ready(function () {
     console.log("ready!");
     
+    // $('.add_ingredient').click(() => {     //add items to the listbox
+    //     if ($('.ingredient').val()) {     //if textbox is not empty, add value to listbox
+    //         $('.ingredients').append(`<option>${$('.ingredient').val()}</option>`);
+    //         $('.ingredient').val('');
+    //     }
+
+    // });
+
+    $('.create_ingredient').click((e)=>{
+        e.preventDefault();
+        $('.ingredient_modal').css('display', 'flex');
+    });
+
+    $('.close_ingredient_modal').click(()=>{
+        $('.ingredient_modal').hide();
+    })
+
     $('.add_ingredient').click(() => {     //add items to the listbox
         if ($('.ingredient').val()) {     //if textbox is not empty, add value to listbox
             $('.ingredients').append(`<option>${$('.ingredient').val()}</option>`);
