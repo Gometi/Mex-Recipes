@@ -10,7 +10,7 @@ recipesRouter.route('/:id')                                                     
 
 userRecipesRouter.route('/')                                                                   //set the route and the functions that will be called on that route
     .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)
-    .post(recipesController.createRecipe)
+    .post(recipesController.createRecipe, recipesViewController.redirectToUserRecipes)
 
 
 userRecipesRouter.route('/:id/edit')                                                           //set the route and the functions that will be called on that route

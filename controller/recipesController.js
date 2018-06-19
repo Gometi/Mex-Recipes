@@ -64,10 +64,26 @@ function createRecipe(req, res, next) {
  .then(()=>{
      console.log('recipe details');
      console.log(recipeDetails);
-     recipeDetails.ingredients.forEach(ingredient => {   //loop through the value in the ingredients
-         console.log(ingredient);
+     if (Array.isArray(recipeDetails.ingredients)){
+         recipeDetails.ingredients.forEach(ingredient => {   //loop through the value in the ingredients
+             console.log(ingredient);
+             let ingredientDetails = {};
+             ingredientDetails.ingredient_name = ingredient;
+             ingredientDetails.recipe_id = id;
+             console.log('creating ingredients')
+             console.log(ingredientDetails);
+             recipes.createIngredient(ingredientDetails)    //call the function that inserts values into the user_ingredients table
+                 .then(() => {
+                     next();
+                 })
+                 .catch((err) => {
+                     next(err);
+                 })
+         });
+     }
+     else{
          let ingredientDetails = {};
-         ingredientDetails.ingredient_name = ingredient;
+         ingredientDetails.ingredient_name = recipeDetails.ingredients;
          ingredientDetails.recipe_id = id;
          console.log('creating ingredients')
          console.log(ingredientDetails);
@@ -78,7 +94,8 @@ function createRecipe(req, res, next) {
              .catch((err) => {
                  next(err);
              })
-     });
+     }
+     
 
      next();
  })

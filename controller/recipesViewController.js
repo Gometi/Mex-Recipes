@@ -19,6 +19,10 @@ function createRecipe(req, res) {
     res.render('recipes/createRecipe');
 }
 
+function redirectToUserRecipes(req, res){
+    res.redirect('/user_recipes');
+}
+
 function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
@@ -33,6 +37,7 @@ module.exports = {        //export the functions
     showAllUserRecipes,
     showOneUserRecipe,
     createRecipe,
+    redirectToUserRecipes,
     editRecipe,
     deleteRecipe
 }

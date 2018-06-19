@@ -4,12 +4,12 @@
 
 
         <div class="create_recipe">
-            <h2>Create recipe</h2>
+            <h1>Create recipe</h1>
         </div>
         <div class="first_container">
 
             <div class="create_container">
-                <form class="createRecipeForm" action="" method="">
+                <form class="createRecipeForm" action="/user_recipes" method="post">
                     <label>
                         <h3>Recipe Name: </h3>
                         <input type="text" name="recipe_name" placeholder="Enter Recipe Name">
@@ -28,16 +28,12 @@
                     <div class="ingredient_list_container">
                         <h3 class="ingredients_list">Ingredients List</h3>
                         <div class="list_of_ingredients">
-
+                       
                         </div>
-                        <!-- <select class="ingredients" name="ingredients" size="8" multiple>
-     
-         </select> -->
-                        <br>
+                       
                         <!-- <button class="remove_ingredient" type="button">Remove Ingredient</button> -->
                     </div>
 
-                    <br>
                     <br>
                     <label>
                         <h3> Instructions:</h3>
@@ -57,7 +53,7 @@
                     </label>
                     <br>
                     <br>
-                    <button class="createRecipeButton">Create Recipe</button>
+                    <button type="submit" class="createRecipeButton">Create Recipe</button>
                 </form>
             </div>
         </div>
