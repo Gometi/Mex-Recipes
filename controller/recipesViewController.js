@@ -27,9 +27,6 @@ function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
 
-function deleteRecipe(req, res) {
-    res.render('recipes/userRecipes')
-}
 
 module.exports = {        //export the functions
     showAllRecipes,
@@ -39,5 +36,4 @@ module.exports = {        //export the functions
     createRecipe,
     redirectToUserRecipes,
     editRecipe,
-    deleteRecipe
 }

@@ -22,8 +22,8 @@ userRecipesRouter.route('/create')                                              
 
 userRecipesRouter.route('/:id')                                                                //set the route and the functions that will be called on that route
     .get(recipesController.getOneUserRecipe, recipesViewController.showOneUserRecipe)
-    .post(recipesController.updateRecipe)
-    .delete(recipesController.deleteRecipe, recipesViewController.deleteRecipe)
+    .put(recipesController.updateRecipe, recipesViewController.redirectToUserRecipes)
+    .delete(recipesController.deleteRecipe, recipesViewController.redirectToUserRecipes)
 
     
 

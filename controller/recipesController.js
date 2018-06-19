@@ -45,7 +45,7 @@ function getAllUserRecipes(req, res, next) {
 function getOneUserRecipe(req, res, next) {
     recipes.getOneUserRecipe(req.params.id)
         .then(data => {
-            console.log(data);
+            console.log('get one',data);
             res.locals.recipe = data;
             next();
         })
@@ -106,60 +106,92 @@ function createRecipe(req, res, next) {
 }
 
 function updateRecipe(req, res, next) {
+    console.log('before delete ingredient', req.body)
+    res.locals.recipe_id = req.body.recipe_id;
     recipes.deleteIngredient(req.body.recipe_id)   //call the function that deletes ingredients from the user_ingredients table
     .then(()=>{
         console.log('delete Ingredient');
-        next();
-    })
-    .catch(err =>{
-        next(err);s
-    })
-
-
-    req.body.ingredients.forEach(ingredient => {        //loop through the ingredient values gotten from the post/update request
-        console.log(ingredient);
-        let ingredientDetails = {};
-        ingredientDetails.ingredient_name = ingredient;
-        ingredientDetails.recipe_id = req.body.recipe_id;
-        recipes.createIngredient(ingredientDetails)         //call the function that inserts values into the user_ingredients table
-            .then(() => {
-                console.log('add Ingredient');
-                next();
-            })
-            .catch((err) => {
-                next(err);
-            })
-    });
-
-    recipes.updateRecipe(req.body)         //call the function that updates the user_recipes table
-    .then(data =>{
+      createIngredient(req, res, next)
         next();
     })
     .catch(err =>{
         next(err);
     })
+
+
+    
+
+    
 }
+
+let createIngredient = (req, res, next)=>{
+    if (Array.isArray(req.body.ingredients)) {
+        req.body.ingredients.forEach(ingredient => {        //loop through the ingredient values gotten from the post/update request
+            console.log(ingredient);
+            let ingredientDetails = {};
+            ingredientDetails.ingredient_name = ingredient;
+            ingredientDetails.recipe_id = req.body.recipe_id;
+            recipes.createIngredient(ingredientDetails)         //call the function that inserts values into the user_ingredients table
+                .then(() => {
+                    console.log('add Ingredient');
+                    recipes.updateRecipe(req.body)         //call the function that updates the user_recipes table
+                        .then(data => {
+                            next();
+                        })
+                        .catch(err => {
+                            next(err);
+                        })
+                    next();
+                })
+                .catch((err) => {
+                    next(err);
+                })
+        });
+    }
+    else {
+        console.log(ingredient);
+        let ingredientDetails = {};
+        ingredientDetails.ingredient_name = req.body.ingredients;
+        ingredientDetails.recipe_id = req.body.recipe_id;
+        recipes.createIngredient(ingredientDetails)         //call the function that inserts values into the user_ingredients table
+            .then(() => {
+                console.log('add Ingredient');
+                recipes.updateRecipe(req.body)         //call the function that updates the user_recipes table
+                    .then(data => {
+                        next();
+                    })
+                    .catch(err => {
+                        next(err);
+                    })
+                next();
+            })
+            .catch((err) => {
+                next(err);
+            })
+    }
+}
+
 
 function deleteRecipe(req, res, next) {     
     const recipe_id = req.params.id;
     recipes.deleteIngredient(recipe_id)     //call the function that deletes ingredients from the user_ingredients table
     .then(()=>{
         console.log('ingredients deleted');
+        recipes.deleteRecipe(recipe_id)         //call the function that deletes recipes from the user_recipes table
+            .then(() => {
+                console.log('recipe deleted');
+                next();
+            })
+            .catch(err => {
+                next(err);
+            })
         next();
     })
     .catch(err =>{
         next(err);
     })
 
-    recipes.deleteRecipe(recipe_id)         //call the function that deletes recipes from the user_recipes table
-        .then(() => {
-            console.log('recipe deleted');
-            res.redirect('/user_recipes');
-            next();
-        })
-        .catch(err => {
-            next(err);
-        })
+    
 }
 
 module.exports = {        //export the functions
