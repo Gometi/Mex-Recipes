@@ -27,6 +27,17 @@ function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
 
+function redirectToHome(req, res) {
+    console.log('statusCode', res.statusCode)
+    if(res.statusCode === 200){
+        res.redirect('/recipes');
+    }
+    else{
+        res.redirect('/sign_in');
+    }
+   
+}
+
 
 module.exports = {        //export the functions
     showAllRecipes,
@@ -36,4 +47,5 @@ module.exports = {        //export the functions
     createRecipe,
     redirectToUserRecipes,
     editRecipe,
+    redirectToHome
 }

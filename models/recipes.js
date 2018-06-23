@@ -1,12 +1,6 @@
 const db = require('../config/connection');  //import the connection
 //define the functions that query the database
-function getAllDefaultRecipes() {
-    return db.any('SELECT * FROM default_recipes');
-}
 
-function getOneDefaultRecipe(id) {
-    return db.any('SELECT default_recipes.recipe_name, default_recipes.description, default_recipes.instructions, default_recipes.nutrition, default_recipes.image_url, default_ingredients.ingredient_name FROM default_recipes JOIN default_ingredients ON default_recipes.recipe_id = default_ingredients.recipe_id WHERE default_recipes.recipe_id = $1', id);
-}
 
 function getAllUserRecipes() {
     return db.any('SELECT * FROM user_recipes');
@@ -40,8 +34,6 @@ function deleteRecipe(recipe_id) {
 }
 
 module.exports = {
-    getAllDefaultRecipes,
-    getOneDefaultRecipe,
     getAllUserRecipes,
     getOneUserRecipe,
     createRecipe,

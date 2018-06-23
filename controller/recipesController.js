@@ -19,17 +19,6 @@ function getAllDefaultRecipes(req, res, next){
 
 
 
-function getOneDefaultRecipe(req, res, next) {
-    recipes.getOneDefaultRecipe(req.params.id)
-    .then(data =>{
-        console.log(data);
-        res.locals.recipe = data;
-        next();
-    })
-    .catch(err =>{
-        next(err);
-    })
-}
 
 function getAllUserRecipes(req, res, next) {
     recipes.getAllUserRecipes()
@@ -55,7 +44,6 @@ function getOneUserRecipe(req, res, next) {
 }
 
 function createRecipe(req, res, next) {
-    console.log(req.body);
  const id = uniqid();            //assign the uniqid to the id const variable
  let recipeDetails = {};         //create an empty object
  recipeDetails = req.body;       //assign the values gotten from the POST request to recipeDetails
@@ -196,7 +184,6 @@ function deleteRecipe(req, res, next) {
 
 module.exports = {        //export the functions
     getAllDefaultRecipes,
-    getOneDefaultRecipe,
     getAllUserRecipes,
     getOneUserRecipe,
     createRecipe,

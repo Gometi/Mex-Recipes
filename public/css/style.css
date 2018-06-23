@@ -284,10 +284,17 @@ textarea{
 .close_ingredient_modal{
     height: 30px;
     width: 30px;
-    background: rgb(5, 241, 45);
+    background: url('../images/close.png');
+    background-size: cover;
 }
 .hide{
     display: none;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 

@@ -20,7 +20,9 @@ app.get('/',(req, res)=>{
 })
 
 app.use('/recipes', router.recipesRouter);    //set routers
-app.use('/user_recipes', router.userRecipesRouter);
+app.use('/user_recipes', router.userRecipesRouter);     //set routers
+app.use('/sign_in', router.register_sign_in_Router);
+app.use('/auth', router.authRouter);
 
 
 
