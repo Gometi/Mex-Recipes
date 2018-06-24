@@ -2,7 +2,7 @@
     <!-- import the header.ejs file -->
 <h1>CREATE A NEW ACCOUNT</h1>
 <div>
-    <form action="/auth/register" method="post">
+    <form class="form">
         <label>
             Username
             <input type="text" name="username" placeholder="Username" required>
@@ -15,7 +15,7 @@
             Password
             <input type="password" name="password" placeholder="Password" required>
         </label>
-        <button type="submit">CREATE ACCOUNT</button>
+        <button class="register" type="submit">CREATE ACCOUNT</button>
     </form>
 
     <a href="/sign_in">

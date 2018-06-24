@@ -87,29 +87,48 @@ $(document).ready(function () {
 
     function decodeToken(token) {
         let playload = JSON.parse(atob(token.split('.')[1]));
-        let username =  playload.username;
+        let username = 'Welcome ' + playload.username;
         localStorage.setItem('username', username);
 
     };
 
     if(localStorage.getItem('username')){
         $('.username').append(localStorage.getItem('username'));
+        $('.sign_in_or_sign_out').text('Sign Out');
     }
 
-    $('.sign_out').click(()=>{
-        localStorage.removeItem('username');
+    if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
+        $('.sign_in_or_sign_out').parent().attr('href', '/recipes');
+    }
+
+    $('.sign_in_or_sign_out').click(()=>{
+        if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
+            localStorage.removeItem('username');
+        }
+        
     })
 
-    $('.sign_in').click((e) => {
-        e.preventDefault();
-        $.post("/auth/sign_in", $('.sign_in_form').serialize())
+
+    const sendFormData = (url)=>{
+        $.post(url, $('.form').serialize())
             .done((data) => {
+                console.log(data)
                 decodeToken(data.token)
                 $(location).attr('href', '/recipes')
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log('error', err)
             })
+    }
+
+    $('.sign_in').click((e) => {
+        e.preventDefault();
+        sendFormData('/auth/sign_in');
+    })
+
+    $('.register').click((e) => {
+        e.preventDefault();
+        sendFormData('/auth/register');
     })
 
 
