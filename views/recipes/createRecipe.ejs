@@ -1,64 +1,74 @@
-<% include ../partials/header %>    <!-- import the header.ejs file -->
-<div class="outer_container">
-    
+<% include ../partials/header %>
+    <!-- import the header.ejs file -->
+    <div class="outer_container">
 
-<div class="create_recipe">
-    <h2>Create recipe</h2>
-</div>
-<div class="first_container">
-    
-<div class="create_container">
-   <form class="createRecipeForm" action="" method="">
-    <label>
-     <h3>Recipe Name: </h3> 
-     <input type="text" name="recipe_name" placeholder="Enter Recipe Name">
-    </label>
-    <br>
-    <br>
-    <label>
-      <h3> Description:</h3> 
-     <textarea name="description" rows="3" cols="40" placeholder="Enter Recipe Description"></textarea>
-    </label>
-    <br>
-    <br>
-    <div class="add_ingredient_container">
-    <input type="text" class="ingredient" placeholder="Enter ingredient Name">
-    
-        <button class="add_ingredient" type="button">Add Ingredient</button> 
+
+        <div class="create_recipe">
+            <h1>Create recipe</h1>
+        </div>
+        <div class="first_container">
+
+            <div class="create_container">
+                <form class="createRecipeForm" action="/user_recipes" method="post">
+                    <input  class="user_id" type="text" name="user_id" style="visibility: hidden;">
+                    <label>
+                        <h3>Recipe Name: </h3>
+                        <input type="text" name="recipe_name" placeholder="Enter Recipe Name">
+                    </label>
+                    <br>
+                    <br>
+                    <label>
+                        <h3> Description:</h3>
+                        <textarea name="description" rows="3" cols="40" placeholder="Enter Recipe Description"></textarea>
+                    </label>
+                    <br>
+                    <br>
+                    <button class="create_ingredient">Add Ingredient</button>
+
+
+                    <div class="ingredient_list_container">
+                        <h3 class="ingredients_list">Ingredients List</h3>
+                        <div class="list_of_ingredients">
+                       
+                        </div>
+                       
+                        <!-- <button class="remove_ingredient" type="button">Remove Ingredient</button> -->
+                    </div>
+
+                    <br>
+                    <label>
+                        <h3> Instructions:</h3>
+                        <textarea name="instructions" rows="3" cols="40" placeholder="Enter Recipe Instructions"></textarea>
+                    </label>
+                    <br>
+                    <br>
+                    <label>
+                        <h3> Nutrition: </h3>
+                        <textarea name="nutrition" rows="3" cols="40" placeholder="Enter Nutrition Facts"></textarea>
+                    </label>
+                    <br>
+                    <br>
+                    <label>
+                        <h3> Recipe Image:</h3>
+                        <input class="image_url" type="text" name="image_url" placeholder="Enter Image url">
+                    </label>
+                    <br>
+                    <br>
+                    <button type="submit" class="createRecipeButton">Create Recipe</button>
+                </form>
+            </div>
+        </div>
     </div>
-    
-        <div class="ingredient_list_container">
-        <h3 class="ingredients_list">Ingredients List</h3>
-        <select class="ingredients" name="ingredients" size="8" multiple>
-     
-         </select>
-      <br>
-        <button class="remove_ingredient" type="button">Remove Ingredient</button> 
+    <div class="ingredient_modal">
+        <div class="modal_container">
+            <div class="add_ingredient_container">
+                <input type="text" class="ingredient" placeholder="Enter ingredient Name">
+
+                <button class="add_ingredient1" type="button">Add Ingredient</button>
+            </div>
+            <div class="close_ingredient_modal"></div>
+        </div>
+
     </div>
-    
-    <br>
-    <br>
-    <label>
-      <h3> Instructions:</h3> 
-     <textarea name="instructions" rows="3" cols="40" placeholder="Enter Recipe Instructions"></textarea>
-    </label>
-    <br>
-    <br>
-     <label>
-      <h3> Nutrition: </h3>
-     <textarea name="nutrition" rows="3" cols="40" placeholder="Enter Nutrition Facts"></textarea>
-    </label>
-    <br>
-    <br>
-    <label>
-      <h3> Recipe Image:</h3> 
-     <input class="image_url" type="text" name="image_url" placeholder="Enter Image url">
-    </label>
-    <br>
-    <br>
-    <button class="createRecipeButton">Create Recipe</button>
-   </form>
-</div>
-</div>
-</div>
-<% include ../partials/footer %>   <!-- import the footer.ejs file -->
+    <% include ../partials/footer %>
+        <!-- import the footer.ejs file -->

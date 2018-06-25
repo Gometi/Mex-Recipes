@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+    <!-- import the header.ejs file -->
+
+<div>
+    <form class="form">
+        <h1>CREATE A NEW ACCOUNT</h1>
+        <h2 class="invalid">Invalid Credentials !!</h2>
+        <label>
+           <h3> Username</h3>
+            <input type="text" name="username" placeholder="Username" required>
+        </label>
+        <label>
+           <h3> Email</h3>
+            <input type="email" name="email" placeholder="Email" required>
+        </label>
+        <label>
+           <h3> Password</h3>
+            <input type="password" name="password" placeholder="Password" required>
+        </label>
+        <button class="register" type="submit">CREATE ACCOUNT</button>
+        <a href="/sign_in">
+            <h4>Sign In</h4>
+        </a>
+    </form>
+
+    
+</div>
+
+
+
+
+
+    <% include ../partials/footer %>
+        <!-- import the footer.ejs file -->

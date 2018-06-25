@@ -6,15 +6,25 @@ nav{
     font-size: 30px;
     font-family: 'Kalam', cursive;
 }
-.recipe_list_title, .create_recipe{
+.create_recipe{
     display: flex;
     flex-direction: row;
     justify-content: center;
     font-family: 'Kalam', cursive;
     color: white;
 }
-.create_recipe h2{
+.recipe_list_title{
+    display: flex;
+    justify-content: center;
+    font-family: 'Kalam', cursive;
+}
+.create_recipe h1{
     color: rgb(36, 2, 2);
+    background: rgb(255, 255, 255, .5);
+}
+
+.edit_recipe h1{
+    color: rgb(136, 60, 223);
     background: rgb(255, 255, 255, .5);
 }
 .recipe_details_page, .welcome{
@@ -113,9 +123,6 @@ a:hover{
     width: 210px;
     height: 100px;
 }
- .recipe_details_page img{
-      
- }
 }
 
 .outer_container{
@@ -129,6 +136,7 @@ a:hover{
 .outer_container h3{
     color: rgb(36, 2, 2);
     font-family: 'Boogaloo', cursive;
+    font-size: 20px;
 }
 .first_container{
     display: flex;
@@ -172,16 +180,44 @@ a:hover{
     flex-direction: column;
     align-items: center;
 }
+.list_of_ingredients div{
+    display: flex;
+    align-items: center;
+}
+
+.ingredients_list{
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.ingredient_name{
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+}
 .createRecipeForm select, .updateRecipeForm select{
     width: 300px;
     background-color: rgb(247, 230, 230);
     font-size: 16px;
 }
-.add_ingredient, .remove_ingredient{
+.add_ingredient1, .add_ingredient2, .create_ingredient{
     height: 30px;
     width: 200px;
+     border: 4px solid white;
+    background: rgb(209, 13, 127);
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
 }
-label, .add_ingredient_container{
+
+.remove_ingredient{
+    height: 30px;
+     border: 4px solid white;
+    background: rgb(17, 1, 11);
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+label{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -199,13 +235,7 @@ textarea{
     font-size: 15px;
     height: 100px;
 }
-button{
-    border: 4px solid white;
-    background: rgb(209, 13, 127);
-    color: white;
-    border-radius: 5px;
-    font-size: 15px;
-}
+
 .image_url{
     width: 400px;
 }
@@ -216,9 +246,91 @@ button{
     font-size: 20px;
     margin-bottom: 10px;
 }
+
+.save{
+    border: 5px solid white;
+    background: rgb(17, 19, 100);
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
 .editLink:hover{
     text-decoration-color: red;
 }
+
+.ingredient_modal{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.add_ingredient_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    border: 2px solid red;
+}
+.modal_container{
+    display: flex;
+}
+.close_ingredient_modal{
+    height: 30px;
+    width: 30px;
+    background: url('../images/close.png');
+    background-size: cover;
+}
+.hide{
+    display: none;
+}
+
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form  label{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.form button{
+    width: 150px;
+    height: 30px;
+    border: 2px solid red;
+    border-radius: 5px;
+    background: rgb(22, 1, 1);
+    color: white;
+}
+.form input{
+    border-radius: 5px;
+    border: 2px solid rgb(121, 13, 13);
+}
+
+.invalid{
+    display: none;
+    color: red;
+}
+
 
 @media only screen and (max-width: 800px){
     .recipe_details_page{

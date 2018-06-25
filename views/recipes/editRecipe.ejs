@@ -1,71 +1,90 @@
-<% include ../partials/header %>   <!-- import header.ejs file -->
-<div class="edit_container">
+<% include ../partials/header %>
+  <!-- import header.ejs file -->
+  <div class="edit_container">
 
-<div class="create_recipe">
-    <h2>Edit recipe</h2>
-</div>
-<div class="first_container">
-    
-
-<div class="updateContainer">
-   <form class="updateRecipeForm" action="" method="">
-   <label>
-   <h3> Recipe Id:</h3>
-   <input class="recipe_id" type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>" disabled>  <!-- set the content of the textbox to the recipe_id gotten from the response body -->
-   </label>
-   <br>
-   <br>
-    <label>
-      <h3> Recipe Name:</h3> 
-     <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">         <!-- set the content of the textbox to the recipe_name gotten from the response body -->
-    </label>
-    <br>
-    <br>
-    <label>
-      <h3> Description:</h3> 
-     <textarea name="description" rows="3" cols="40"><%=recipe[0].description%></textarea>  <!-- set the content of the textarea to the description gotten from the response body -->
-    </label>
-    <br>
-    <br>
-    <label>
-    <input type="text" class="ingredient">
-    </label>
-    <button class="add_ingredient" type="button" >Add Ingredient</button>
-    <div class="ingredient_list_container">
-     <h3>Ingredient List</h3>
-    <select class="ingredients" name="ingredients" size="5" multiple>
-     <% recipe.forEach(recipe =>{%>
-        <option><%=recipe.ingredient_name %></option>     
-    <%})%>
-    </select>
-    <br>
-    <button class="remove_ingredient" type="button">Remove Ingredient</button>
+    <div class="create_recipe">
+      <h1>Edit recipe</h1>
     </div>
-    <br>
-    <br>
-    <label>
-      <h3> Instructions:</h3> 
-     <textarea name="instructions" rows="3" cols="40"><%=recipe[0].instructions%></textarea>   <!-- set the content of the textarea to the instructions gotten from the response body -->
-    </label>
-    <br>
-    <br>
-     <label>
-      <h3> Nutrition: </h3>
-     <textarea name="nutrition" rows="3" cols="40"><%=recipe[0].nutrition%></textarea>         <!-- set the content of the textarea to the nutrition gotten from the response body -->
-    </label>
-    <br>
-    <br>
-    <label>
-      <h3> Recipe Image: </h3>
-     <input class="image_url" type="text" name="image_url" value="<%=recipe[0].image_url%>">    <!-- set the content of the textbox to the image url gotten from the response body -->
-    </label>
-    <br>
-    <br>
-    
-        <a class="editLink" href="/user_recipes"><h2 class="editRecipe">Save Changes</h2></a>
-   
-   </form>
-</div>
-</div>
-</div>
-<% include ../partials/footer %>     <!-- import the footer.ejs file -->
+    <div class="first_container">
+
+
+      <div class="updateContainer">
+        <form class="updateRecipeForm" action="/user_recipes/<%=recipe[0].recipe_id%>?_method=PUT" method="post">
+          <input class="user_id" type="text" name="user_id" style="visibility: hidden;">
+            <input class="hide" class="recipe_id"  type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>">
+            <!-- set the content of the textbox to the recipe_id gotten from the response body -->
+          <br>
+          <br>
+          <label>
+            <h3> Recipe Name:</h3>
+            <input type="text" name="recipe_name" value="<%=recipe[0].recipe_name%>">
+            <!-- set the content of the textbox to the recipe_name gotten from the response body -->
+          </label>
+          <br>
+          <br>
+          <label>
+            <h3> Description:</h3>
+            <textarea name="description" rows="3" cols="40"><%=recipe[0].description%></textarea>
+            <!-- set the content of the textarea to the description gotten from the response body -->
+          </label>
+          <br>
+          <br>
+          
+          <button class="create_ingredient" type="button">Add Ingredient</button>
+          <div class="ingredient_list_container">
+            <h3>Ingredient List</h3>
+            <div class="list_of_ingredients">
+              <% recipe.forEach(recipe =>{%>
+                <div>
+                  <input type="text" name="ingredients" value=<%=recipe.ingredient_name %>>
+                  <button class="remove_ingredient" type="button">Remove</button>
+                </div>
+
+                <%})%>
+            </div>
+            <br>
+            
+          </div>
+          <br>
+          <br>
+          <label>
+            <h3> Instructions:</h3>
+            <textarea name="instructions" rows="3" cols="40"><%=recipe[0].instructions%></textarea>
+            <!-- set the content of the textarea to the instructions gotten from the response body -->
+          </label>
+          <br>
+          <br>
+          <label>
+            <h3> Nutrition: </h3>
+            <textarea name="nutrition" rows="3" cols="40"><%=recipe[0].nutrition%></textarea>
+            <!-- set the content of the textarea to the nutrition gotten from the response body -->
+          </label>
+          <br>
+          <br>
+          <label>
+            <h3> Recipe Image: </h3>
+            <input class="image_url" type="text" name="image_url" value="<%=recipe[0].image_url%>">
+            <!-- set the content of the textbox to the image url gotten from the response body -->
+          </label>
+          <br>
+          <br>
+
+          <button class="save" type="submit">Save</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="ingredient_modal">
+    <div class="modal_container">
+      <div class="add_ingredient_container">
+        <input type="text" class="ingredient" placeholder="Enter ingredient Name">
+  
+        <button class="add_ingredient2" type="button">Add Ingredient</button>
+      </div>
+      <div class="close_ingredient_modal"></div>
+    </div>
+  
+  </div>
+  <% include ../partials/footer %>
+    <!-- import the footer.ejs file -->

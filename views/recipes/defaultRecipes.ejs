@@ -1,6 +1,6 @@
 <% include ../partials/header %>    <!-- import the header.ejs file -->
     <div class="defaultRecipes">
-    <h1>Random Recipes</h1>
+    <h1>Today's Recipes</h1>
         <%recipes.forEach(recipe =>{%>
             <h2><%=recipe.strMeal%> </h2>         
             <h2><%=recipe.strCategory%></h2><br>

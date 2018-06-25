@@ -19,13 +19,29 @@ function createRecipe(req, res) {
     res.render('recipes/createRecipe');
 }
 
+function redirectToUserRecipes(req, res){
+    res.redirect(`/user_recipes/${res.locals.user_id}/user`);
+}
+
 function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
 
-function deleteRecipe(req, res) {
-    res.render('recipes/userRecipes')
+function redirectHome(req, res) {
+    res.redirect('/recipes');
 }
+
+function redirectToHome(req, res) {
+    console.log('statusCode', res.statusCode)
+    if(res.statusCode === 200){
+        res.redirect('/recipes');
+    }
+    else{
+        res.redirect('/sign_in');
+    }
+   
+}
+
 
 module.exports = {        //export the functions
     showAllRecipes,
@@ -33,6 +49,8 @@ module.exports = {        //export the functions
     showAllUserRecipes,
     showOneUserRecipe,
     createRecipe,
+    redirectToUserRecipes,
     editRecipe,
-    deleteRecipe
+    redirectToHome,
+    redirectHome
 }
