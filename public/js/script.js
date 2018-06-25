@@ -1,16 +1,7 @@
 
 $(document).ready(function () {
     console.log("ready!");
-    // if($('.email').val() == 'mak@gmail.com'){
-    //     $(location).attr('href', '/')
-    // }
-    // $('.add_ingredient').click(() => {     //add items to the listbox
-    //     if ($('.ingredient').val()) {     //if textbox is not empty, add value to listbox
-    //         $('.ingredients').append(`<option>${$('.ingredient').val()}</option>`);
-    //         $('.ingredient').val('');
-    //     }
-
-    // });
+   
 
     $('.create_ingredient').click((e) => {
         e.preventDefault();
@@ -72,18 +63,7 @@ $(document).ready(function () {
         target.parent().remove();
     });
 
-    // $('.createRecipeButton').click(() => {
-    //     $('.ingredients option').attr('selected', true);       //select all listbox items before post
-
-    //     $.post('/user_recipes', $('.createRecipeForm').serialize());
-
-    // });
-
-    // $('.save').click((e)=>{
-    //     e.preventDefault();
-    //     $('.recipe_id').attr('disabled', false);
-    //     $.post(`/user_recipes/${$('.recipe_id').val()}`, $('.updateRecipeForm').serialize());
-    // });
+    
 
     function decodeToken(token) {
         let payload = JSON.parse(atob(token.split('.')[1]));
@@ -92,7 +72,7 @@ $(document).ready(function () {
     };
 
     if(localStorage.getItem('username')){
-        $('.username').append('Welcome ' + localStorage.getItem('username'));
+        $('.username').html('Welcome ' + localStorage.getItem('username')).show();
         $('.sign_in_or_sign_out').text('Sign Out');
         let userId = localStorage.getItem('user_id');
         $('.user_id').val(userId);
@@ -127,10 +107,6 @@ $(document).ready(function () {
             })
     }
 
-    // $('.deleteButton').click(()=>{
-    //     let userId = localStorage.getItem('user_id');
-    //     $(location).attr('href', `/user_recipes/${userId}/user`)
-    // })
 
     $('.sign_in').click((e) => {
         e.preventDefault();
@@ -150,13 +126,15 @@ $(document).ready(function () {
 
     $('.view_recipes_nav').click(()=>{
         if (!localStorage.getItem('username')){
-             alert('You Have Not Signed In !!');
+            $('.username').css('color', 'red');
+            $('.username').html('You Have Not Signed In !!').show().fadeOut(2500);
         }
     })
 
     $('.create_recipe_nav').click(() => {
         if (!localStorage.getItem('username')) {
-            alert('You Have Not Signed In !!');
+            $('.username').css('color', 'red');
+            $('.username').html('You Have Not Signed In !!').show().fadeOut(2500);
         }
     })
 

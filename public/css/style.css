@@ -330,6 +330,10 @@ justify-content: center;
     display: none;
     color: red;
 }
+.username{
+    display: none;
+    color: rgb(43, 4, 80);
+}
 
 
 @media only screen and (max-width: 800px){
