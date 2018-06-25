@@ -86,15 +86,17 @@ $(document).ready(function () {
     // });
 
     function decodeToken(token) {
-        let playload = JSON.parse(atob(token.split('.')[1]));
-        let username = 'Welcome ' + playload.username;
-        localStorage.setItem('username', username);
-
+        let payload = JSON.parse(atob(token.split('.')[1]));
+        localStorage.setItem('username',  payload.username);
+        localStorage.setItem('user_id', payload.id);
     };
 
     if(localStorage.getItem('username')){
-        $('.username').append(localStorage.getItem('username'));
+        $('.username').append('Welcome ' + localStorage.getItem('username'));
         $('.sign_in_or_sign_out').text('Sign Out');
+        let userId = localStorage.getItem('user_id');
+        $('.user_id').val(userId);
+        $('.view_recipes_link').attr('href', `/user_recipes/${userId}/user`);
     }
 
     if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
@@ -104,6 +106,7 @@ $(document).ready(function () {
     $('.sign_in_or_sign_out').click(()=>{
         if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
             localStorage.removeItem('username');
+            localStorage.removeItem('user_id');
         }
         
     })
@@ -112,7 +115,6 @@ $(document).ready(function () {
     const sendFormData = (url)=>{
         $.post(url, $('.form').serialize())
             .done((data) => {
-                console.log(data)
                 decodeToken(data.token)
                 $(location).attr('href', '/recipes')
             })
@@ -134,6 +136,12 @@ $(document).ready(function () {
 
     $('.deleteButton').click(() => {
         alert('Recipe Deleted');
+    })
+
+    $('.view_recipes').click(()=>{
+        if (!localStorage.getItem('username')){
+             alert('You Have Not Signed In !!');
+        }
     })
 
 

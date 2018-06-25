@@ -2,8 +2,8 @@ const db = require('../config/connection');  //import the connection
 //define the functions that query the database
 
 
-function getAllUserRecipes() {
-    return db.any('SELECT * FROM user_recipes');
+function getAllUserRecipes(id) {
+    return db.any('SELECT * FROM user_recipes WHERE user_id = $1', id);
 }
 
 function getOneUserRecipe(id) {
@@ -12,7 +12,7 @@ function getOneUserRecipe(id) {
 
 function createRecipe(recipe) {
 
-    return db.one(`INSERT INTO user_recipes (recipe_id, recipe_name, description, instructions, nutrition, image_url) VALUES($/recipe_id/, $/recipe_name/, $/description/, $/instructions/, $/nutrition/, $/image_url/) RETURNING *`, recipe);
+    return db.one(`INSERT INTO user_recipes (recipe_id, recipe_name, description, instructions, nutrition, image_url, user_id) VALUES($/recipe_id/, $/recipe_name/, $/description/, $/instructions/, $/nutrition/, $/image_url/, $/user_id/) RETURNING *`, recipe);
 
 }
 

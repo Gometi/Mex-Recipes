@@ -21,7 +21,7 @@ function getAllDefaultRecipes(req, res, next){
 
 
 function getAllUserRecipes(req, res, next) {
-    recipes.getAllUserRecipes()
+    recipes.getAllUserRecipes(req.params.id)
         .then(data => {
             res.locals.recipes = data;
             next();
@@ -48,18 +48,15 @@ function createRecipe(req, res, next) {
  let recipeDetails = {};         //create an empty object
  recipeDetails = req.body;       //assign the values gotten from the POST request to recipeDetails
  recipeDetails.recipe_id = id;    //assign the uniqid to recipe_id
+ res.locals.user_id = req.body.user_id;
     recipes.createRecipe(recipeDetails)     //call the function that inserts values into the user_recipes table
  .then(()=>{
-     console.log('recipe details');
-     console.log(recipeDetails);
      if (Array.isArray(recipeDetails.ingredients)){
          recipeDetails.ingredients.forEach(ingredient => {   //loop through the value in the ingredients
-             console.log(ingredient);
              let ingredientDetails = {};
              ingredientDetails.ingredient_name = ingredient;
              ingredientDetails.recipe_id = id;
-             console.log('creating ingredients')
-             console.log(ingredientDetails);
+             
              recipes.createIngredient(ingredientDetails)    //call the function that inserts values into the user_ingredients table
                  .then(() => {
                      next();
@@ -73,8 +70,7 @@ function createRecipe(req, res, next) {
          let ingredientDetails = {};
          ingredientDetails.ingredient_name = recipeDetails.ingredients;
          ingredientDetails.recipe_id = id;
-         console.log('creating ingredients')
-         console.log(ingredientDetails);
+        
          recipes.createIngredient(ingredientDetails)    //call the function that inserts values into the user_ingredients table
              .then(() => {
                  next();
@@ -96,6 +92,7 @@ function createRecipe(req, res, next) {
 function updateRecipe(req, res, next) {
     console.log('before delete ingredient', req.body)
     res.locals.recipe_id = req.body.recipe_id;
+    res.locals.user_id = req.body.user_id;
     recipes.deleteIngredient(req.body.recipe_id)   //call the function that deletes ingredients from the user_ingredients table
     .then(()=>{
         console.log('delete Ingredient');
@@ -137,7 +134,6 @@ let createIngredient = (req, res, next)=>{
         });
     }
     else {
-        console.log(ingredient);
         let ingredientDetails = {};
         ingredientDetails.ingredient_name = req.body.ingredients;
         ingredientDetails.recipe_id = req.body.recipe_id;

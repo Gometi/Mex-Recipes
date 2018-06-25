@@ -12,8 +12,12 @@ recipesRouter.route('/')                                        //set the route 
 
 
 userRecipesRouter.route('/')                                                                   //set the route and the functions that will be called on that route
-    .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)
+    // .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)
     .post(recipesController.createRecipe, recipesViewController.redirectToUserRecipes)
+
+userRecipesRouter.route('/:id/user')                                                                   //set the route and the functions that will be called on that route
+    .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)
+
 
 
 userRecipesRouter.route('/:id/edit')                                                           //set the route and the functions that will be called on that route

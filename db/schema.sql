@@ -1,15 +1,21 @@
 
-
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_recipes
 CASCADE;
 DROP TABLE IF EXISTS user_ingredients
 CASCADE;
 
-DROP TABLE IF EXISTS users;
 
 
 
 
+CREATE TABLE users
+(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    pw_digest VARCHAR
+);
 
 CREATE TABLE user_recipes
 (
@@ -18,7 +24,8 @@ CREATE TABLE user_recipes
     description TEXT,
     instructions TEXT,
     nutrition TEXT,
-    image_url TEXT
+    image_url TEXT,
+    user_id INT REFERENCES users(id) 
 );
 
 CREATE TABLE user_ingredients
@@ -30,12 +37,6 @@ CREATE TABLE user_ingredients
 );
 
 
-CREATE TABLE users
-(
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255),
-    email VARCHAR(255) UNIQUE NOT NULL,
-    pw_digest VARCHAR
-);
+
 
 

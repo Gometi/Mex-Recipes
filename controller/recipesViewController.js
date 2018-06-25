@@ -20,7 +20,7 @@ function createRecipe(req, res) {
 }
 
 function redirectToUserRecipes(req, res){
-    res.redirect('/user_recipes');
+    res.redirect(`/user_recipes/${res.locals.user_id}/user`);
 }
 
 function editRecipe(req, res) {

@@ -10,7 +10,7 @@
 
       <div class="updateContainer">
         <form class="updateRecipeForm" action="/user_recipes/<%=recipe[0].recipe_id%>?_method=PUT" method="post">
-         
+          <input class="user_id" type="text" name="user_id" style="visibility: hidden;">
             <input class="hide" class="recipe_id"  type="text" name="recipe_id" value="<%=recipe[0].recipe_id%>">
             <!-- set the content of the textbox to the recipe_id gotten from the response body -->
           <br>
