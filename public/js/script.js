@@ -97,6 +97,7 @@ $(document).ready(function () {
         let userId = localStorage.getItem('user_id');
         $('.user_id').val(userId);
         $('.view_recipes_link').attr('href', `/user_recipes/${userId}/user`);
+        $('.create_recipe_link').attr('href', `/user_recipes/create`);
     }
 
     if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
@@ -119,9 +120,17 @@ $(document).ready(function () {
                 $(location).attr('href', '/recipes')
             })
             .catch(err => {
-                console.log('error', err)
+                if (err.responseJSON.message === 'Username taken'){
+                    $('.invalid').html('Username taken!!')
+                }
+                $('.invalid').show();
             })
     }
+
+    // $('.deleteButton').click(()=>{
+    //     let userId = localStorage.getItem('user_id');
+    //     $(location).attr('href', `/user_recipes/${userId}/user`)
+    // })
 
     $('.sign_in').click((e) => {
         e.preventDefault();
@@ -130,6 +139,7 @@ $(document).ready(function () {
 
     $('.register').click((e) => {
         e.preventDefault();
+    
         sendFormData('/auth/register');
     })
 
@@ -138,9 +148,15 @@ $(document).ready(function () {
         alert('Recipe Deleted');
     })
 
-    $('.view_recipes').click(()=>{
+    $('.view_recipes_nav').click(()=>{
         if (!localStorage.getItem('username')){
              alert('You Have Not Signed In !!');
+        }
+    })
+
+    $('.create_recipe_nav').click(() => {
+        if (!localStorage.getItem('username')) {
+            alert('You Have Not Signed In !!');
         }
     })
 

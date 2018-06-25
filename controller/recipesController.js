@@ -156,7 +156,7 @@ let createIngredient = (req, res, next)=>{
 }
 
 
-function deleteRecipe(req, res, next) {     
+function deleteRecipe(req, res, next) {  
     const recipe_id = req.params.id;
     recipes.deleteIngredient(recipe_id)     //call the function that deletes ingredients from the user_ingredients table
     .then(()=>{

@@ -27,6 +27,10 @@ function editRecipe(req, res) {
     res.render('recipes/editRecipe');
 }
 
+function redirectHome(req, res) {
+    res.redirect('/recipes');
+}
+
 function redirectToHome(req, res) {
     console.log('statusCode', res.statusCode)
     if(res.statusCode === 200){
@@ -47,5 +51,6 @@ module.exports = {        //export the functions
     createRecipe,
     redirectToUserRecipes,
     editRecipe,
-    redirectToHome
+    redirectToHome,
+    redirectHome
 }

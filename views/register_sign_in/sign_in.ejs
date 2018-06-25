@@ -1,21 +1,26 @@
 <% include ../partials/header %>
     <!-- import the header.ejs file -->
 
-   <h1>SIGN IN</h1>
+   
 <div>
-    <form action="" class="form">
+    <form  action="" class="form">
+        <h1>SIGN IN</h1>
+        <h2 class="invalid">Invalid Credentials !!</h2>
         <label>
-            Email
+           <h3>Email</h3> 
             <input class="email" type="email" name="email" placeholder="Email" required>
         </label>
         <label>
-            Password
+           <h3>Password</h3> 
             <input type="password" name="password" placeholder="Password" required>
         </label>
         <button class="sign_in" type="submit">SIGN IN</button>
+        <a href="/sign_in/register">
+            <h4>Create A New Account</h4>
+        </a>
     </form>
 
-   <a href="/sign_in/register"> <h4>Create A New Account</h4></a>
+   
 </div>
 
 

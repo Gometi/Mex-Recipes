@@ -30,7 +30,7 @@ userRecipesRouter.route('/create')                                              
 userRecipesRouter.route('/:id')                                                                //set the route and the functions that will be called on that route
     .get(recipesController.getOneUserRecipe, recipesViewController.showOneUserRecipe)
     .put(recipesController.updateRecipe, recipesViewController.redirectToUserRecipes)
-    .delete(recipesController.deleteRecipe, recipesViewController.redirectToUserRecipes)
+    .delete(recipesController.deleteRecipe, recipesViewController.redirectHome)
 
     
 register_sign_in_Router.route('/')

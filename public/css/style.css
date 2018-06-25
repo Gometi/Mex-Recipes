@@ -6,12 +6,17 @@ nav{
     font-size: 30px;
     font-family: 'Kalam', cursive;
 }
-.recipe_list_title, .create_recipe{
+.create_recipe{
     display: flex;
     flex-direction: row;
     justify-content: center;
     font-family: 'Kalam', cursive;
     color: white;
+}
+.recipe_list_title{
+    display: flex;
+    justify-content: center;
+    font-family: 'Kalam', cursive;
 }
 .create_recipe h1{
     color: rgb(36, 2, 2);
@@ -295,6 +300,35 @@ textarea{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form  label{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.form button{
+    width: 150px;
+    height: 30px;
+    border: 2px solid red;
+    border-radius: 5px;
+    background: rgb(22, 1, 1);
+    color: white;
+}
+.form input{
+    border-radius: 5px;
+    border: 2px solid rgb(121, 13, 13);
+}
+
+.invalid{
+    display: none;
+    color: red;
 }
 
 
