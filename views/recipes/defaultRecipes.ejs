@@ -1,7 +1,8 @@
-<% include ../partials/header %>    <!-- import the header.ejs file -->
+<% include ../partials/header %>
+    <!-- import the header.ejs file -->
     <div class="defaultRecipes">
-    <h1>Today's Recipes</h1>
-        <%recipes.forEach(recipe =>{%>
+        <h1>Today's Recipes</h1>
+        <!-- <%recipes.forEach(recipe =>{%>
             <h2><%=recipe.strMeal%> </h2>         
             <h2><%=recipe.strCategory%></h2><br>
              <img src="<%=recipe.strMealThumb%>" alt="">    
@@ -45,8 +46,31 @@
          <h3>Instructions</h3>
     <p><%= recipe.strInstructions %></p>
      </div>
-      <%}) %>
-     </div>
-     
+      <%}) %> -->
+      <div class="container">
+        <div class="row">
+            <%recipes.forEach(recipe =>{%>
+        
+                <div class="card border border-danger m-3 shadow" style="width: 250px;">
+                    <img class="card-img-top rounded img-fluid" src="<%=recipe.strMealThumb%>" alt="card mage">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%=recipe.strMeal%>
+                        </h4>
+                        <p class="card-text bg-light">
+                            <%=recipe.strCategory%>
+                        </p>
+                    </div>
+                </div>
+        
+                <%}) %>
+        </div>
+      </div>
+        
 
-  <% include ../partials/footer %>
+    
+
+    </div>
+
+
+    <% include ../partials/footer %>
