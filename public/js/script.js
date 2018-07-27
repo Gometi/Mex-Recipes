@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
 
     if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
-        $('.sign_in_or_sign_out').parent().attr('href', '/recipes');
+        $('.sign_in_or_sign_out').attr('href', '/');
     }
 
     $('.sign_in_or_sign_out').click(()=>{
@@ -97,7 +97,7 @@ $(document).ready(function () {
         $.post(url, $('.form').serialize())
             .done((data) => {
                 decodeToken(data.token)
-                $(location).attr('href', '/recipes')
+                $(location).attr('href', '/')
             })
             .catch(err => {
                 if (err.responseJSON.message === 'Username taken'){
@@ -136,6 +136,11 @@ $(document).ready(function () {
             $('.username').css('color', 'red');
             $('.username').html('You Have Not Signed In !!').show().fadeOut(2500);
         }
+    });
+
+    $('.card').hover((e)=>{
+        let target = e.currentTarget;       
+        $(target).toggleClass('shadow');
     })
 
 
