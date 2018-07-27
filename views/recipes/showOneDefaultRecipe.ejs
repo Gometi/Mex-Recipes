@@ -1,0 +1,131 @@
+<% include ../partials/header %>
+    <!-- import the header.ejs file -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container col-3" style="background-color:yellow;">
+                <ul class="list-group">
+                    <li class="list-group-item active description">Description</li>
+                    <li class="list-group-item ingredients">Ingredients</li>
+                    <li class="list-group-item instructions">Instructions</li>
+                </ul>
+
+            </div>
+            <div class="container col-9">
+                <div class="card recipe-description" style="width: 500px; margin-left: 25%">
+                    <img class="card-img-top rounded img-fluid" src="<%=recipe.strMealThumb%>" alt="card mage">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%=recipe.strMeal%>
+                        </h4>
+                        <p class="card-text bg-light">
+                            <%=recipe.strCategory%>
+                        </p>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="container recipe-ingredients" style="display: none;">
+                    <h2 class="text-center">Ingredients</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure1%>
+                                <%= recipe.strIngredient1%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure2%>
+                                <%= recipe.strIngredient2%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure3%>
+                                <%= recipe.strIngredient3%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure4%>
+                                <%= recipe.strIngredient4%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure5%>
+                                <%= recipe.strIngredient5%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure6%>
+                                <%= recipe.strIngredient6%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure7%>
+                                <%= recipe.strIngredient7%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure8%>
+                                <%= recipe.strIngredient8%>
+                        </li>
+                        <li class="list-group-item">
+                            <%= recipe.strMeasure9%>
+                                <%= recipe.strIngredient9%>
+                        </li>
+                        <%if(recipe.strMeasure10){%>
+                            <li class="list-group-item">
+                                <%= recipe.strMeasure10%>
+                                    <%= recipe.strIngredient10%>
+                            </li>
+                            <%}%>
+                                <%if(recipe.strMeasure11){%>
+                                    <li class="list-group-item">
+                                        <%= recipe.strMeasure11%>
+                                            <%= recipe.strIngredient11%>
+                                    </li>
+                                    <%}%>
+                                        <%if(recipe.strMeasure12){%>
+                                            <li class="list-group-item">
+                                                <%= recipe.strMeasure12%>
+                                                    <%= recipe.strIngredient12%>
+                                            </li>
+                                            <%}%>
+                                                <%if(recipe.strMeasure13){%>
+                                                    <li class="list-group-item">
+                                                        <%= recipe.strMeasure13%>
+                                                            <%= recipe.strIngredient13%>
+                                                    </li>
+                                                    <%}%>
+                                                        <%if(recipe.strMeasure14){%>
+                                                            <li class="list-group-item">
+                                                                <%= recipe.strMeasure14%>
+                                                                    <%= recipe.strIngredient14%>
+                                                            </li>
+                                                            <%}%>
+                                                                <%if(recipe.strMeasure15){%>
+                                                                    <li class="list-group-item">
+                                                                        <%= recipe.strMeasure15%>
+                                                                            <%= recipe.strIngredient15%>
+                                                                    </li>
+                                                                    <%}%>
+                                                                        <%if(recipe.strMeasure16){%>
+                                                                            <li class="list-group-item">
+                                                                                <%= recipe.strMeasure16%>
+                                                                                    <%= recipe.strIngredient16%>
+                                                                            </li>
+                                                                            <%}%>
+                                                                                <%if(recipe.strMeasure17){%>
+                                                                                    <li class="list-group-item">
+                                                                                        <%= recipe.strMeasure17%>
+                                                                                            <%= recipe.strIngredient17%>
+                                                                                    </li>
+                                                                                    <%}%>
+                    </ul>
+                </div>
+                <div class="container recipe-instructions">
+                    <h1 class="text-center">Instructions</h1>
+                    <%= recipe.strYoutube%>
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9XpzHm9QpZg"></iframe>
+                    </div>
+                    <h3>
+                        <%= recipe.strInstructions %>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+
+        <% include ../partials/footer %>

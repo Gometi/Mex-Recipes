@@ -10,6 +10,9 @@ const authController = require('../controller/authController');
 recipesRouter.route('/')                                        //set the route and the functions that will be called on that route
     .get(recipesController.getAllDefaultRecipes, recipesViewController.showAllRecipes)
 
+recipesRouter.route('/:id')
+.get(recipesController.getOneDefaultRecipe, recipesViewController.showOneDefaultRecipe)
+
 
 userRecipesRouter.route('/')                                                                   //set the route and the functions that will be called on that route
     // .get(recipesController.getAllUserRecipes, recipesViewController.showAllUserRecipes)

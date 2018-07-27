@@ -4,6 +4,10 @@ function showAllRecipes(req, res) {
     res.render('recipes/defaultRecipes');
 }
 
+let showOneDefaultRecipe = (req, res)=>{
+    res.render('recipes/showOneDefaultRecipe');
+}
+
 function showOneRecipe(req, res) {
     res.render('recipes/recipeDetails');
 }
@@ -45,6 +49,7 @@ function redirectToHome(req, res) {
 
 module.exports = {        //export the functions
     showAllRecipes,
+    showOneDefaultRecipe,
     showOneRecipe,
     showAllUserRecipes,
     showOneUserRecipe,

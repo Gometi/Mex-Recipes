@@ -138,10 +138,24 @@ $(document).ready(function () {
         }
     });
 
-    $('.card').hover((e)=>{
+    $('.recipe-card').hover((e)=>{
         let target = e.currentTarget;       
         $(target).toggleClass('shadow');
     })
+
+    $('.list-group .ingredients').click(()=>{
+        $('.recipe-ingredients').show();
+        $('.recipe-description').hide();
+        $('.list-group .ingredients').addClass('active');
+        $('.list-group .description').removeClass('active');
+    });
+
+    $('.list-group .description').click(() => {
+        $('.recipe-ingredients').hide();
+        $('.recipe-description').show();
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .description').addClass('active');
+    });
 
 
 });

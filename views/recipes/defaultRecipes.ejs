@@ -86,7 +86,8 @@
             <div class="row">
                 <%recipes.forEach((recipe, index) =>{%>
                     <% if(index < 8) {%>
-                        <div class="card border border-danger m-3 shadow" style="width: 250px;">
+                        <div class="card recipe-card border border-danger m-3 shadow" style="width: 250px;">
+                            <a href="<%=index%>">
                             <img class="card-img-top rounded img-fluid" src="<%=recipe.strMealThumb%>" alt="card mage">
                             <div class="card-body">
                                 <h4 class="card-title">
@@ -96,6 +97,7 @@
                                     <%=recipe.strCategory%>
                                 </p>
                             </div>
+                            </a>
                         </div>
                         <%} %>
 
