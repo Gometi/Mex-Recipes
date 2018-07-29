@@ -2,31 +2,35 @@
     <!-- import the header.ejs file -->
     <div class="container-fluid">
         <div class="row">
-            <div class="container col-3" style="background-color:yellow;">
+            <div class="container col-sm-3 border-right">
                 <ul class="list-group">
-                    <li class="list-group-item active description">Description</li>
-                    <li class="list-group-item ingredients">Ingredients</li>
-                    <li class="list-group-item instructions">Instructions</li>
+                    <li class="list-group-item list-group-item-action active description">Description</li>
+                    <li class="list-group-item list-group-item-action ingredients">Ingredients</li>
+                    <li class="list-group-item list-group-item-action instructions">Instructions</li>
                 </ul>
 
             </div>
-            <div class="container col-9">
-                <div class="card recipe-description" style="width: 500px; margin-left: 25%">
-                    <img class="card-img-top rounded img-fluid" src="<%=recipe.strMealThumb%>" alt="card mage">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <%=recipe.strMeal%>
-                        </h4>
-                        <p class="card-text bg-light">
-                            <%=recipe.strCategory%>
-                        </p>
+            <div class="container col-sm-9">
+                <div class="container recipe-description">
+                    <div class="d-flex align-items-center flex-column">
+                        <img class=" rounded img-fluid" src="<%=recipe.strMealThumb%>" alt=" image" style="width: 800px; height: 500px;">
+                        <div class="d-flex flex-column align-items-center">
+                            <h3 class="">
+                                <%=recipe.strMeal%>
+                            </h3>
+                            <h2 class="">
+                                <%=recipe.strCategory%>
+                            </h2>
+                        </div>
                     </div>
+
 
                 </div>
                 <br>
 
                 <div class="container recipe-ingredients" style="display: none;">
                     <h2 class="text-center">Ingredients</h2>
+                    <div style="overflow: auto; height: 500px;">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <%= recipe.strMeasure1%>
@@ -113,16 +117,21 @@
                                                                                     </li>
                                                                                     <%}%>
                     </ul>
-                </div>
-                <div class="container recipe-instructions">
-                    <h1 class="text-center">Instructions</h1>
-                    <%= recipe.strYoutube%>
-                    <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9XpzHm9QpZg"></iframe>
                     </div>
-                    <h3>
-                        <%= recipe.strInstructions %>
-                    </h3>
+                </div>
+                <div class="container recipe-instructions" style="display: none;">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="embed-responsive embed-responsive-16by9" style="height: 400px; width: 800px;">
+
+                            <iframe class="embed-responsive-item ml-5" src="<%= recipe.strYoutube%>"></iframe>
+                        </div>
+                            <br>
+                            <h1 class="">Instructions</h1>
+                            <h3>
+                                <%= recipe.strInstructions %>
+                            </h3>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -26,6 +26,7 @@ a:hover{
 .list-group .description:hover, .list-group .ingredients:hover, .list-group .instructions:hover{
     cursor: pointer;
 }
+
 .create_recipe{
     display: flex;
     flex-direction: row;

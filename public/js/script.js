@@ -144,17 +144,39 @@ $(document).ready(function () {
     })
 
     $('.list-group .ingredients').click(()=>{
-        $('.recipe-ingredients').show();
-        $('.recipe-description').hide();
+        setTimeout(() => {
+            $('.recipe-ingredients').fadeIn(500);
+        }, 400);
+        
+        $('.recipe-description').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
         $('.list-group .ingredients').addClass('active');
         $('.list-group .description').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
     });
 
     $('.list-group .description').click(() => {
-        $('.recipe-ingredients').hide();
-        $('.recipe-description').show();
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
+        setTimeout(() => {
+            $('.recipe-description').fadeIn(500);
+        }, 400);
+        
         $('.list-group .ingredients').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
         $('.list-group .description').addClass('active');
+    });
+
+    $('.list-group .instructions').click(() => {
+        setTimeout(() => {
+            $('.recipe-instructions').fadeIn(500);
+        }, 400);
+       
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-description').fadeOut(500);
+        $('.list-group .description').removeClass('active');
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .instructions').addClass('active');
     });
 
 

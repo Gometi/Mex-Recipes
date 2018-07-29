@@ -27,8 +27,8 @@ let getOneDefaultRecipe = (req, res, next)=>{
                 
                if(req.params.id == index){
                    let newRecipe = recipe;
-                   console.log(newRecipe.strYoutube)
-                   res.locals.recipe = recipe;
+                    newRecipe.strYoutube = recipe.strYoutube.replace('watch?v=', 'embed/');
+                   res.locals.recipe = newRecipe;
                }
             })
             next();
