@@ -150,20 +150,24 @@ $(document).ready(function () {
         
         $('.recipe-description').fadeOut(500);
         $('.recipe-instructions').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
         $('.list-group .ingredients').addClass('active');
         $('.list-group .description').removeClass('active');
         $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
     });
 
     $('.list-group .description').click(() => {
         $('.recipe-ingredients').fadeOut(500);
         $('.recipe-instructions').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
         setTimeout(() => {
             $('.recipe-description').fadeIn(500);
         }, 400);
         
         $('.list-group .ingredients').removeClass('active');
         $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
         $('.list-group .description').addClass('active');
     });
 
@@ -174,9 +178,25 @@ $(document).ready(function () {
        
         $('.recipe-ingredients').fadeOut(500);
         $('.recipe-description').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
         $('.list-group .description').removeClass('active');
         $('.list-group .ingredients').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
         $('.list-group .instructions').addClass('active');
+    });
+
+    $('.list-group .nutrition').click(() => {
+        setTimeout(() => {
+            $('.recipe-nutrition').fadeIn(500);
+        }, 400);
+
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-description').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
+        $('.list-group .description').removeClass('active');
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').addClass('active');
     });
 
 

@@ -1,27 +1,80 @@
 <% include ../partials/header %>   <!-- import header.ejs file -->
-<div class="edit_delete">
-    <a href="/user_recipes/<%= recipe[0].recipe_id%>/edit"><h1>Edit Recipe</h1></a>
-    <form action="/user_recipes/<%= recipe[0].recipe_id%>?_method=DELETE" method="POST">
-         <input class="deleteButton" type="submit" name="" value="Delete Recipe">   <!-- button that sends the delete request-->
-    </form>
-</div>
-<div class="details_container">
-    <h1 class="recipe_details_title">Recipe Details</h1>
-<div class="recipe_details_page">
-    <h2><%= recipe[0].recipe_name%></h2>     <!-- get recipe name from the response body -->
-    <img src="<%= recipe[0].image_url%>" alt="">   <!-- get image url from the response body -->
-    <h4><%= recipe[0].description %></h4><br>    <!-- get the description from the response body -->
-    <h3>Ingredients</h3>
-    <ul>
-        <% recipe.forEach(recipe =>{%>
-        <li><%=recipe.ingredient_name %></li>     
-    <%})%>
-    </ul>
-    
-    <h3>Directions</h3>
-    <p><%= recipe[0].instructions %></p>    <!-- get the instructions from the response body -->
-    <h3>Nutrition</h3>
-    <p><%= recipe[0].nutrition%></p>       <!-- get the nutrition from the response body -->
-</div>
-</div>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container col-sm-3 border-right">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action active description">Description</li>
+                <li class="list-group-item list-group-item-action ingredients">Ingredients</li>
+                <li class="list-group-item list-group-item-action instructions">Instructions</li>
+                <li class="list-group-item list-group-item-action nutrition">Nutrition</li>
+                <br>
+                <br>
+                <li class="list-group-item list-group-item-action edit"><a href="/user_recipes/<%= recipe[0].recipe_id%>/edit">
+                    <h3>Edit Recipe</h3>
+                </a></li>
+                <li class="list-group-item list-group-item-action delete"><form action="/user_recipes/<%= recipe[0].recipe_id%>?_method=DELETE" method="POST">
+                    <input class="deleteButton" type="submit" name="" value="Delete Recipe">
+                    <!-- button that sends the delete request-->
+                </form></li>
+            </ul>
+
+        </div>
+        <div class="container col-sm-9">
+            <div class="container recipe-description">
+                <div class="d-flex align-items-center flex-column">
+                    <img class=" rounded img-fluid" src="<%= recipe[0].image_url%>" alt="Recipe image" style="width: 800px; height: 500px;">
+                    <div class="d-flex flex-column align-items-center">
+                        <h3 class="">
+                            <%= recipe[0].recipe_name%>
+                        </h3>
+                        <h2 class="">
+                            <%= recipe[0].description %>
+                        </h2>
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+
+            <div class="container recipe-ingredients" style="display: none;">
+                <h2 class="text-center">Ingredients</h2>
+                <div style="overflow: auto; height: 500px;">
+                <ul  class="list-group">
+                    <% recipe.forEach(recipe =>{%>
+                        <li class="list-group-item">
+                            <%=recipe.ingredient_name %>
+                        </li>
+                        <%})%>
+                </ul>
+                </div>
+            </div>
+            <div class="container recipe-instructions" style="display: none;">
+                <div class="d-flex flex-column align-items-center">
+                    <br>
+                    <h1 class="">Instructions</h1>
+                    <h3>
+                        <%= recipe[0].instructions %>
+                    </h3>
+                </div>
+
+            </div>
+            <div class="container recipe-nutrition" style="display: none;">
+                <div class="d-flex flex-column align-items-center">
+                    <br>
+                    <h1 class="">Nutrition</h1>
+                    <h3>
+                        <%= recipe[0].nutrition%>
+                    </h3>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 <% include ../partials/footer %>      <!-- import the footer.ejs -->
