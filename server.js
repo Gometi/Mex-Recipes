@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false })); // parse urlencoded req bod
 app.use(bodyParser.json());                          //parse with json (for POST and PUT)
 app.use(methodOverride('_method'));
 
-// app.get('/',(req, res)=>{
-//     res.render('home/index');                //show the home page
-// })
+app.get('/',(req, res)=>{
+    res.render('home/index');                //show the home page
+})
 
-app.use('/', router.recipesRouter);    //set routers
+app.use('/recipes', router.recipesRouter);    //set routers
 app.use('/user_recipes', router.userRecipesRouter);     //set routers
 app.use('/sign_in', router.register_sign_in_Router);
 app.use('/auth', router.authRouter);

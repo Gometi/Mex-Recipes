@@ -47,6 +47,7 @@
     <p><%= recipe.strInstructions %></p>
      </div>
       <%}) %> -->
+      <br>
       <div class="container">
         <div id="slideShow" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
@@ -87,7 +88,7 @@
                 <%recipes.forEach((recipe, index) =>{%>
                     <% if(index < 8) {%>
                         <div class="card recipe-card border border-danger m-3 shadow" style="width: 250px;">
-                            <a href="<%=index%>">
+                            <a href="/recipes/<%=index%>">
                             <img class="card-img-top rounded img-fluid" src="<%=recipe.strMealThumb%>" alt="card mage">
                             <div class="card-body">
                                 <h4 class="card-title">

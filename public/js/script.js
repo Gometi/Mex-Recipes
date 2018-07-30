@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
 
     if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
-        $('.sign_in_or_sign_out').attr('href', '/');
+        $('.sign_in_or_sign_out').attr('href', '/recipes');
     }
 
     $('.sign_in_or_sign_out').click(()=>{
@@ -97,7 +97,7 @@ $(document).ready(function () {
         $.post(url, $('.form').serialize())
             .done((data) => {
                 decodeToken(data.token)
-                $(location).attr('href', '/')
+                $(location).attr('href', '/recipes')
             })
             .catch(err => {
                 if (err.responseJSON.message === 'Username taken'){
