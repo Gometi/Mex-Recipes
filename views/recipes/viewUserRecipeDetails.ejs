@@ -1,13 +1,13 @@
-<% include ../partials/header %>   <!-- import header.ejs file -->
+<% include ../partials/header %>   <!-- imports header.ejs file -->
 <br>
 <div class="container-fluid">
     <div class="row">
         <div class="container col-sm-3 border-right">
             <ul class="list-group">
-                <li class="list-group-item list-group-item-action active description">Description</li>
-                <li class="list-group-item list-group-item-action ingredients">Ingredients</li>
-                <li class="list-group-item list-group-item-action instructions">Instructions</li>
-                <li class="list-group-item list-group-item-action nutrition">Nutrition</li>
+                <li class="list-group-item list-group-item-action list-group-item-danger active description">Description</li>
+                <li class="list-group-item list-group-item-action list-group-item-danger ingredients">Ingredients</li>
+                <li class="list-group-item list-group-item-action list-group-item-danger instructions">Instructions</li>
+                <li class="list-group-item list-group-item-action list-group-item-danger nutrition">Nutrition</li>
                 <br>
                 <br>
                 <li class="list-group-item list-group-item-action edit"><a href="/user_recipes/<%= recipe[0].recipe_id%>/edit">
