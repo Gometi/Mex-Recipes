@@ -17,7 +17,26 @@ function getAllDefaultRecipes(req, res, next){
         })
 }
 
-
+let getOneDefaultRecipe = (req, res, next)=>{
+    fetch('https://www.themealdb.com/api/json/v1/1/latest.php')     //fetch the api
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            data.meals.map((recipe, index)=>{
+                
+               if(req.params.id == index){
+                   let newRecipe = recipe;
+                    newRecipe.strYoutube = recipe.strYoutube.replace('watch?v=', 'embed/');
+                   res.locals.recipe = newRecipe;
+               }
+            })
+            next();
+        })
+        .catch((err) => {
+            next(err);
+        })
+}
 
 
 function getAllUserRecipes(req, res, next) {
@@ -180,6 +199,7 @@ function deleteRecipe(req, res, next) {
 
 module.exports = {        //export the functions
     getAllDefaultRecipes,
+    getOneDefaultRecipe,
     getAllUserRecipes,
     getOneUserRecipe,
     createRecipe,

@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
 
     if ($('.sign_in_or_sign_out').text() === 'Sign Out'){
-        $('.sign_in_or_sign_out').parent().attr('href', '/recipes');
+        $('.sign_in_or_sign_out').attr('href', '/recipes');
     }
 
     $('.sign_in_or_sign_out').click(()=>{
@@ -136,7 +136,68 @@ $(document).ready(function () {
             $('.username').css('color', 'red');
             $('.username').html('You Have Not Signed In !!').show().fadeOut(2500);
         }
+    });
+
+    $('.recipe-card').hover((e)=>{
+        let target = e.currentTarget;       
+        $(target).toggleClass('shadow');
     })
+
+    $('.list-group .ingredients').click(()=>{
+        setTimeout(() => {
+            $('.recipe-ingredients').fadeIn(500);
+        }, 400);
+        
+        $('.recipe-description').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
+        $('.list-group .ingredients').addClass('active');
+        $('.list-group .description').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
+    });
+
+    $('.list-group .description').click(() => {
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
+        setTimeout(() => {
+            $('.recipe-description').fadeIn(500);
+        }, 400);
+        
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
+        $('.list-group .description').addClass('active');
+    });
+
+    $('.list-group .instructions').click(() => {
+        setTimeout(() => {
+            $('.recipe-instructions').fadeIn(500);
+        }, 400);
+       
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-description').fadeOut(500);
+        $('.recipe-nutrition').fadeOut(500);
+        $('.list-group .description').removeClass('active');
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .nutrition').removeClass('active');
+        $('.list-group .instructions').addClass('active');
+    });
+
+    $('.list-group .nutrition').click(() => {
+        setTimeout(() => {
+            $('.recipe-nutrition').fadeIn(500);
+        }, 400);
+
+        $('.recipe-ingredients').fadeOut(500);
+        $('.recipe-description').fadeOut(500);
+        $('.recipe-instructions').fadeOut(500);
+        $('.list-group .description').removeClass('active');
+        $('.list-group .ingredients').removeClass('active');
+        $('.list-group .instructions').removeClass('active');
+        $('.list-group .nutrition').addClass('active');
+    });
 
 
 });

@@ -1,11 +1,32 @@
+
 textarea{
     resize: none;
 }
 nav{
-    background-color: red;
+    /* background-color: red; */
     font-size: 30px;
     font-family: 'Kalam', cursive;
 }
+a:hover{
+    text-decoration: none;
+}
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+.card{
+    transition: .6s;
+}
+.recipe-card:hover{
+    transform: scale(.96);
+    background: rgba(245, 13, 13, .2);
+    cursor: pointer;
+}
+
+.list-group .description:hover, .list-group .ingredients:hover, .list-group .instructions:hover{
+    cursor: pointer;
+}
+
 .create_recipe{
     display: flex;
     flex-direction: row;
@@ -20,7 +41,6 @@ nav{
 }
 .create_recipe h1{
     color: rgb(36, 2, 2);
-    background: rgb(255, 255, 255, .5);
 }
 
 .edit_recipe h1{
@@ -34,21 +54,27 @@ nav{
     font-family:  cursive;
     
 }
-.defaultRecipes, .default_recipe_details{
+ .default_recipe_details{
     display: flex;
     flex-direction: column;
     align-items:  center;
 }
 .defaultRecipes{
+    /* display: flex;
+    flex-direction: column;
+    align-items:  center;
     padding-left: 100px;
-    padding-right: 100px;
+    padding-right: 100px; */
 }
 .defaultRecipes img{
-    width: 700px;
-    height: 500px;
-    border: 2px solid red;
-    border-radius: 30px;
+    /* width: 350px;
+    height: 230px; */
+    /* border: 2px solid red; */
+    /* border-radius: 15px; */
+    /* padding: 20px; */
 }
+
+
 .welcome h1{
  font-size: 70px;
 }
@@ -77,7 +103,7 @@ nav{
     background: black;
     color: white;
 }
-nav ul{
+/* nav ul{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -92,7 +118,7 @@ a{
 a:hover{
     text-decoration: underline;
     text-decoration-color: wheat;
-}
+} */
 .recipe_image{
     width: 300px;
     height: 150px;
@@ -104,7 +130,7 @@ a:hover{
     border: 2px solid black;
     border-radius: 10px;
     margin: 30px;
-    box-shadow: 5px 10px gray;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
     transition: .3s;
 }
 .recipes:hover{
@@ -125,13 +151,17 @@ a:hover{
 }
 }
 
-.outer_container{
+.container-1{
     background: url("../images/recipeBack1.jpg");
     background-size: cover;
 }
-.edit_container{
+.container-2{
     background: url("../images/recipeBack3.jpg");
     background-size: cover;
+}
+
+.outer_container, .edit_container{
+     background: rgb(253, 251, 251, .7);
 }
 .outer_container h3{
     color: rgb(36, 2, 2);
@@ -145,11 +175,13 @@ a:hover{
 .create_container, .recipe_details_page, .updateContainer{
     height: 550px;
     width: 1000px;
-    background: rgb(253, 251, 251, .5);
-     border: 10px solid white;
-     border-radius: 30px;
+     border: 5px solid rgb(252, 69, 69);
+     border-radius: 20px;
     overflow: auto;
 }
+
+
+
 .recipe_details_page{
     border: 5px solid black;
 
