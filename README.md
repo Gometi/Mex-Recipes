@@ -5,7 +5,7 @@ This is basicaly a recipe management system where users can create, update and d
 
 # Overview
 
-- The landing page will display different recipes that can be gotten from the database or from an API. The recipes may be random each time the page loads.
+- The landing page will display different recipes that are gotten from an API.
 
 
 - The User will be able to click on a recipe to go to the recipes details page.
